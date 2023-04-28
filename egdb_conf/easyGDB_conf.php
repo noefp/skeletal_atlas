@@ -30,7 +30,7 @@ $tb_jbrowse = 0;
 $tb_seq_ext = 0;
 $tb_annot_ext = 0;
 $tb_gene_expr = 0;
-$tb_lookup = 1;
+$tb_lookup = 0;
 $tb_more = 0;
 $tb_custom = 1;
 
