@@ -47,9 +47,11 @@ $ab_labs = 0;
 
 //Gene examples
 $gene_sample = "";
-$input_gene_list="Oleur061Scf2145g00022.1
-Oleur061Scf2075g02039.1
-Oleur061Scf2086g01023.1";
+$input_gene_list="0610005C13Rik
+0610007P14Rik
+0610009B22Rik
+0610009L18Rik
+0610009O20Rik";
 
 
 // Tools
