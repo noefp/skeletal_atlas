@@ -15,7 +15,7 @@ $annotation_links_path = "$root_path/$egdb_files_folder/annotations";
 
 // header
 $dbTitle = "SkeletalAtlas";
-$header_img = "welcome_page.jpg";
+$header_img = "welcome_page1.jpg";
 $db_logo = "db_logo.png";
 
 // Toolbar

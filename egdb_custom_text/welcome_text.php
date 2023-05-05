@@ -84,6 +84,9 @@ $("#myModal").modal();
 
 .page_container {
   background-image: <?php echo "url($images_path/welcome_page.jpg)" ?>;
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
 }
 
 #index_container {
