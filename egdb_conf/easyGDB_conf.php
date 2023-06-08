@@ -37,6 +37,7 @@ $tb_custom = 1;
 // Expression Atlas
 $expr_cards = 1;
 $expr_menu = 1;
+$expr_cartoons = 1;
 
 // Index
 $rm_citation = 1;
