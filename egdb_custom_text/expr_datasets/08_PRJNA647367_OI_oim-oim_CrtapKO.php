@@ -1,28 +1,26 @@
+<h3>Transcriptome of Osteogenesis Imperfecta mice models</h3>
 <p>
-  Condition: Transcriptional analysis of CrtapKO and oim/oim Osteogenesis Imperfecta models
-  Genotype: Col1a2 oim/oim and Crtap -/- (both OI models)
-  Phenotype: Both mice models displayed Osteogenesis Imperfecta phenotypes
-  Tissue: Bone
-  Age: 12 week/3 month old
-  Sex: Both
+  <b>Experimental condition:</b> Transcriptional analysis of Crtap ko and oim/oim Osteogenesis Imperfecta models.<br>
+  <b>Genes:</b> Crtap is a scaffold protein that holds two other proteins, P3H1 and PPIB, in a heterotrimeric complex involved in post-translational modification of the pro-chains of type I collagen. The oim/oim model presents a null mutation in the COL1A2 gene of type I collagen.<br>
+  <b>Phenotype:</b> Both mice models displayed Osteogenesis Imperfecta phenotypes.<br>
+  <b>Tissue:</b> Femorae and tibiae.<br>
+  <b>Age:</b> 12 week old.<br>
+  <b>Sex:</b> Both.<br>
+  <b>Layout:</b> Single.<br>
+  <b>Reads length:</b> 75 bp.<br>
+  <b>Sample processing:</b> RNA was extracted from cortical tibial and femoral bone and libraries were constructed using the SMART-Seq v4 UltraLow RNA Input Kit. Library construction was completed using the ThruPLEX DNA-seq kit.
+  cDNA libraries were sequenced by PE sequencing with an Illumina NextSeq 550 sequencer and normalized to TPM.
 
 </p>
 
-<h4>Experimental Conditions:</h4>
+<h4>Cases:</h4>
 <ul>
-  <li>OI_wt: Control mice (4 biological replicates, with 4 runs each one).</li>
-  <li>OI_oim-oim: Mice suffering Osteogenesis Imperfecta, Col1a2 oim/oim model (4 biological replicates, with 4 runs each one).</li>
-  <li>OI_CrtapKO: Mice suffering Osteogenesis imperfecta, Crtap -/- model (4 biological replicates, with 4 runs each one).</li>
-  
-
+    <li>Wt_OI: Control mice (4 biological replicates, with 4 runs each one).</li>
+    <li>OI_oim-oim: Mice suffering Osteogenesis Imperfecta, Col1a2<sup>oim/oim</sup> model (4 biological replicates, with 4 runs each one).</li>
+    <li>OI_Crtap_ko: Mice suffering Osteogenesis imperfecta, Crtap<sup>-/-</sup> model (4 biological replicates, with 4 runs each one).</li>
 </ul>
 
 <p>
-Femora and tibiae were harvested from WT, oim/oim, and CrtapKO mice at 3 months of age, N=4/genotype. Samples were obtained by removing the epiphyses, thoroughly flushing the bone marrow, and scraping off the periosteal membrane; all these procedures were performed on ice. The samples were homogenized in TriPure Isolation Reagent (Roche REF 11667157001) and processed for RNA extraction according to the manufacturer’s instructions until the chloroform separation step. An equal volume of freshly-made, RNase-free 75% ethanol was added to the clear supernatant obtained from the chloroform separation, mixed, and then transferred to an RNeasy Micro column (Qiagen cat# 74004). Digestion with DNase I and elution of RNA was performed according to the manufacturer’s instructions. RNA samples were tested for quality using an Agilent 2100 Bioanalyzer. 
-Sequencing libraries were prepared from the RNA samples by use of the TruSeq mRNA Sample Prep Kit (Illumina). Then sequencing was performed by SE with an Illumina NovaSeq 6000 sequencer and normalised to TPM.
-  
-</p>
-<p>
-  This dataset was published by <a href="https://doi.org/10.1038/s41598-023-32221-3" target="_blank">Zimmerman SL et al., 2019</a> 
-  and raw data can be found in the <a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA647367" target="_blank">BioProject PRJNA647367</a>.
+    This dataset was published by <a href=" https://doi.org/10.1002/jbm4.10171" target="_blank">Zimmerman SL et al., 2019</a> 
+    and raw data can be found in the <a href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA647367" target="_blank">BioProject PRJNA647367</a>.
 </p>
