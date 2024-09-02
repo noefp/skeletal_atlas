@@ -12,6 +12,15 @@ $custom_text_path = "$root_path/$egdb_files_folder/egdb_custom_text";
 $species_path = "$root_path/$egdb_files_folder/egdb_species";
 $lab_path = "$root_path/$egdb_files_folder/egdb_labs";
 $annotation_links_path = "$root_path/$egdb_files_folder/annotations";
+$tools_path="$custom_text_path/tools";
+
+
+
+// Custom css file
+//$custom_css = 1;
+$custom_css_path = "$egdb_files_folder/css/skeletal_atlas.css";
+
+
 
 // header
 $dbTitle = "SkeletalAtlas";
