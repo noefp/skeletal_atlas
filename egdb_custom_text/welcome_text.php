@@ -19,7 +19,7 @@
           <img src="<?php echo $images_path.'/tools/multi_reference.png'?>" alt="reference" width="350px" height="350px" class="solid alignnone size-medium wp-image-3011 rounded-circle image" >
         </a>
         <div class="text">
-          <strong>Multiomic Reference Atlas</strong>
+          <strong>Multiomics Reference Atlas</strong>
         </div>
       </div>
       <div class="select">
@@ -27,7 +27,7 @@
           <img src="<?php echo $images_path.'/tools/exp_expre_viewer.png'?>" alt="Comparator" width="250px" height="250px" class="solid alignnone size-medium wp-image-3011 rounded-circle image">
         </a>  
         <div class="text">
-          <strong>Expression Viewer</strong>
+          <strong>Experiment Expression Viewer</strong>
         </div>
       </div>
     </div>
