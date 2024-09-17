@@ -13,6 +13,7 @@ $species_path = "$root_path/$egdb_files_folder/egdb_species";
 $lab_path = "$root_path/$egdb_files_folder/egdb_labs";
 $annotation_links_path = "$root_path/$egdb_files_folder/annotations";
 $tools_path="$custom_text_path/tools";
+$expression_basic_atlas_path = "$root_path/expression_data/skeletal_basic_atlas";
 
 
 
