@@ -1,9 +1,13 @@
-<?php include_once realpath("../../../../easy_gdb/header.php");?>
 
+<header>
+<?php include_once realpath("../../../../easy_gdb/header.php");?>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</header>
 
+<body>
 <div class ="page_container">
   <div>
     <a class="float-right margin-20" href="/easy_gdb/help/08_gene_expression.php" target="_blank"><i class='fa fa-info' style='font-size:20px;color:#229dff'></i> Help</a>
@@ -31,8 +35,7 @@
         <div class="col-sm-6 col-md-6 col-lg-6">
           <!-- <a class="float-right" href="/easy_gdb/tools/expression/expression_menu.php" target="_blank" ><i style='font-size:20px;color:#229dff' ></i> Dataset information</a> -->
           <label for="InputGenes">Paste a list of gene IDs</label>
-          <textarea class="form-control" id="InputGenes" rows="8" name="gids">
-          </textarea>
+          <textarea class="form-control" id="InputGenes" rows="8" name="gids"></textarea>
           <br>    
         </div>
       </div>      
@@ -42,11 +45,32 @@
     <br>
   </div>
 </div>
+</body>
 
 <footer>
 <?php include realpath('../../../../easy_gdb/footer.php'); ?>
 </footer>
 
+<!--  -------------- Modal Error Info popup --------------------------------------------------------------------------------------- -->
+<div class="modal fade" id="genesEmptyModal" tabindex="-1" aria-labelledby="genesNotFoundLabel" aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog">
+  <!-- <div class="modal-dialog modal-sm"> -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title w-100 text-center" id="genesEmpty" style="color: red">❌ <b>Error</b></h1>
+      </div>
+      <div class="modal-body">
+        <!-- Aquí se mostrará la lista de genes no encontrados -->
+        <i><b><p class="text-center">
+        No genes were included in the analysis.<br>Please, add some gene IDs to the input list box</p></b></i>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- -------------------------------------------------------------------------------------------------------------- -->
 <style>
   
   .ui-autocomplete {
@@ -65,7 +89,7 @@
 <script>
   $(document).ready(function () {
     
-    //call PHP file ajax_get_names_array.php to get the gene list to autocomplete from the selected dataset file
+ //call PHP file ajax_get_names_array.php to get the gene list to autocomplete from the selected dataset file
     function ajax_call(expr_file,expr_file_path) {
       jQuery.ajax({
         type: "POST",
@@ -86,7 +110,7 @@
           });
         }
       });
-    }; // end ajax_call function
+    }; // end ajax_call functionn
     
     
     $('#add_gene_btn').click(function () {
@@ -114,12 +138,11 @@
       
       if (gene_count == 0) {
           //alert("No genes were included in the analysis. Gene count: "+gene_count+". Please, add some gene IDs to the input list box.");
-          Swal.fire({
-                  title: "<b>ERROR</b>",
-                  html: `No genes were included in the analysis.<br>
-                  Please, add some gene IDs to the input list box`,
-                  icon: "error"
-                });
+            // Mostramos el modal con la lista de genes no encontrados
+            var myModal = new bootstrap.Modal(document.getElementById('genesEmptyModal'), {
+            keyboard: false
+        });
+        myModal.show()
           return false;
       }
       //check input genes from gene lookup before sending form
@@ -141,13 +164,13 @@
 
   // call ajax_call function to get the gene list to autocomplete
 
-var autocomplete_files=["00_mouse_basic_atlas_v07.txt","proteomics_tissues_atlas_v01.txt","sc_mouse_basic_atlas_v01.txt"];
+  var autocomplete_files=["00_mouse_basic_atlas_v07.txt","proteomics_tissues_atlas_v01.txt","sc_mouse_basic_atlas_v01.txt"];
   //var autocomplete_file= "/var/www/html/expression_data/skeletal_atlas/01mouse_basic_atlas/00_mouse_basic_atlas_v07.txt";
   
   expr_file_path = "<?php echo $expression_basic_atlas_path; ?>";
   
   
-  ajax_call(autocomplete_files,expr_file_path);
+  ajax_call(autocomplete_files,expr_file_path)
   });
 </script>
 
