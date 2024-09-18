@@ -4,7 +4,6 @@ $root_path = "/var/www/html"; //use absolute path
 $egdb_files_folder = "skeletal_atlas";
 $easy_gdb_path = "$root_path/easy_gdb";
 $blast_dbs_path = "$root_path/blast_dbs";
-$expression_path = "$root_path/expression_data/skeletal_atlas";
 $downloads_path = "downloads";
 $lookup_path = "$root_path/lookup"; //from root 
 $images_path = "/$egdb_files_folder/egdb_images";
@@ -13,6 +12,8 @@ $species_path = "$root_path/$egdb_files_folder/egdb_species";
 $lab_path = "$root_path/$egdb_files_folder/egdb_labs";
 $annotation_links_path = "$root_path/$egdb_files_folder/annotations";
 $tools_path="$custom_text_path/tools";
+$expression_path = "$root_path/expression_data/skeletal_atlas";
+$private_expression_path = "$root_path/private_expression_data/skeletal_atlas";
 $expression_basic_atlas_path = "$root_path/expression_data/skeletal_basic_atlas";
 
 
@@ -29,8 +30,8 @@ $header_img = "welcome_page1.jpg";
 $db_logo = "db_logo.png";
 
 // Toolbar
-$tb_about = 1;
-$tb_downloads = 1;
+$tb_about = 0;
+$tb_downloads = 0;
 $tb_species = 0;
 $tb_search_box = 0;
 $tb_tools = 0;
