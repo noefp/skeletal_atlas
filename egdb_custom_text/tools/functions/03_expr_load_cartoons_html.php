@@ -1,4 +1,5 @@
 <!-- #####################             Cartoons             ################################ -->
+<!-- #####################             Cartoons             ################################ -->
 <center>
 <?php
 
@@ -85,15 +86,16 @@ foreach($dataset_file_name as $index => $dataset )
           // }
           echo "</div>";
           
-
-          echo '<span class="circle" style=background-color:#C7FFED"></span> Lowest <1';
-          echo '<span class="circle" style="background-color:#CCFFBD"></span> >=1';
-          echo '<span class="circle" style="background-color:#FFFF5C"></span> >=2';
-          echo '<span class="circle" style="background-color:#FFC300"></span> >=10';
-          echo '<span class="circle" style="background-color:#FF5733"></span> >=50';
-          echo '<span class="circle" style="background-color:#C70039"></span> >=100';
-          echo '<span class="circle" style="background-color:#900C3F"></span> >=200';
-          echo '<span class="circle" style="background-color:#581845"></span> >=5000';
+          echo "<div class=\"d-inline-flex\" style=\"width:100%; margin:10px\" id=\"colors$index\">";  
+          // echo '<span class="circle" style=background-color:#C7FFED"></span> Lowest <1';
+          // echo '<span class="circle" style="background-color:#CCFFBD"></span> >=1';
+          // echo '<span class="circle" style="background-color:#FFFF5C"></span> >=2';
+          // echo '<span class="circle" style="background-color:#FFC300"></span> >=10';
+          // echo '<span class="circle" style="background-color:#FF5733"></span> >=50';
+          // echo '<span class="circle" style="background-color:#C70039"></span> >=100';
+          // echo '<span class="circle" style="background-color:#900C3F"></span> >=200';
+          // echo '<span class="circle" style="background-color:#581845"></span> >=5000';
+          echo "</div>";
           echo '</div>';
 
         echo "<div style=\"margin-left:auto;margin-right: auto;\">";
@@ -145,6 +147,30 @@ foreach($dataset_file_name as $index => $dataset )
 }
 ?>
 </center>
+
+<!--  Create expression colors palete (HTML) ----------------------------------------------------------------------->
+<script type='text/javascript'>
+        var colors_list = ["#C7FFED","#CCFFBD","#FFFF5C","#FFC300","#FF5733","#C70039","#900C3F","#581845"];
+        var range =["Lowest <1",">=1",">=2",">=10",">=50",">=100",">=200",">=5000"];
+
+        // Insertamos los genes en la lista del modal
+      for(var n=0; n<3;n++)
+      {
+        for(var i in colors_list)
+        {
+            var Color_range = document.getElementById('colors'+[n]);
+            var listItem = document.createElement('span');
+            var listRange = document.createElement('lable');
+            listItem.style.backgroundColor=colors_list[i];
+            listItem.setAttribute("class","circle");
+            Color_range.appendChild(listItem);
+            listRange.textContent = range[i];
+            Color_range.appendChild(listRange);
+
+        }
+      }
+</script>
+<!-- ------------------------------------------------------------------------------------------------------ -->
 
 <script type="text/javascript" src="../functions/kinetic-v5.1.0.min.js"></script>
 <script type="text/javascript" src="../functions/cartoons_kinetic.js"></script>      
