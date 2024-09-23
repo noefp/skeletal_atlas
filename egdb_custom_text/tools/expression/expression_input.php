@@ -29,9 +29,19 @@
               <div class="input-group-append">
                 <button id="add_gene_btn" class="btn btn-success"><i class="fas fa-angle-double-right" style="font-size:28px;color:white"></i></button>
               </div>
-            </div>      
-          </div>    
+            </div>
+            
+          </div>
+           
+          <br>
+          
+          <div>
+           <label for="typicalGeneSelect">Add typical gene markers for:</label>
+            <select id=typicalGeneSelect class="form-control" style="width:auto">
+            </select>     
+          </div>
         </div>
+          
         <div class="col-sm-6 col-md-6 col-lg-6">
           <!-- <a class="float-right" href="/easy_gdb/tools/expression/expression_menu.php" target="_blank" ><i style='font-size:20px;color:#229dff' ></i> Dataset information</a> -->
           <label for="InputGenes">Paste a list of gene IDs</label>
@@ -160,7 +170,25 @@
       return true;
     });
 
+    // create selection "Add typical gene markers"------------------------------------------------- 
     $("#InputGenes").val(["Col1a1","Col2a1","Matn3","Prg4","Cdh5","Dmp1"].join("\n"));
+
+    var all_genes=<?php echo file_get_contents("$expression_path/Typical_gene_select.json")?>
+    // Insertamos los genes en la lista del modal
+      var geneListElement = document.getElementById('typicalGeneSelect');
+      for(var sample in all_genes)
+      { // add elements in html code 
+        var listItem = document.createElement('option');
+        listItem.textContent = sample;
+        geneListElement.appendChild(listItem);
+      }
+
+    $( "#typicalGeneSelect" ).change(function() {
+    
+      select=all_genes[this.value];
+      $("#InputGenes").val(select.replaceAll(",", "\n"));
+    });
+
 
   // call ajax_call function to get the gene list to autocomplete
 
