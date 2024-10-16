@@ -10,6 +10,7 @@ $images_path = "/$egdb_files_folder/egdb_images";
 $custom_text_path = "$root_path/$egdb_files_folder/egdb_custom_text";
 $species_path = "$root_path/$egdb_files_folder/egdb_species";
 $lab_path = "$root_path/$egdb_files_folder/egdb_labs";
+$annotations_path = "$root_path/annotations";
 $annotation_links_path = "$root_path/$egdb_files_folder/annotations";
 $tools_path="$custom_text_path/tools";
 $expression_path = "$root_path/expression_data/skeletal_atlas";
