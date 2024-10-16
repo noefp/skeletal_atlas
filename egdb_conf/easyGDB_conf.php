@@ -16,13 +16,12 @@ $expression_path = "$root_path/expression_data/skeletal_atlas";
 $private_expression_path = "$root_path/private_expression_data/skeletal_atlas";
 $expression_basic_atlas_path = "$root_path/expression_data/skeletal_basic_atlas";
 
-
-
 // Custom css file
 //$custom_css = 1;
 $custom_css_path = "$egdb_files_folder/css/skeletal_atlas.css";
 
-
+// Select 1 to store annotations in files or 0 to store annotations in a relational database
+$file_database = 1;
 
 // header
 $dbTitle = "SkeletalAtlas";
