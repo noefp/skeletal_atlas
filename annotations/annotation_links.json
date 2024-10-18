@@ -1,0 +1,10 @@
+{
+  "ENSEMBL": "https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
+  "GeneBank": "https://www.ncbi.nlm.nih.gov/gene/?term=query_id",
+  "RefSeq":"https://www.ncbi.nlm.nih.gov/protein/query_id",
+  "MGI": "https://www.informatics.jax.org/marker/query_id",
+  "SwissProt":"http://www.uniprot.org/uniprot/query_id",
+  "TREMBL":"http://www.uniprot.org/uniprot/query_id",
+  "GO": "https://amigo.geneontology.org/amigo/term/query_id",
+  "Interpro":"https://www.ebi.ac.uk/interpro/entry/InterPro/query_id"
+}
