@@ -4,7 +4,9 @@
   "RefSeq":"https://www.ncbi.nlm.nih.gov/protein/query_id",
   "MGI": "https://www.informatics.jax.org/marker/query_id",
   "SwissProt":"http://www.uniprot.org/uniprot/query_id",
-  "TREMBL":"http://www.uniprot.org/uniprot/query_id",
-  "GO": "https://amigo.geneontology.org/amigo/term/query_id",
+  "TrEMBL":"http://www.uniprot.org/uniprot/query_id",
+  "GO (BP)": "https://amigo.geneontology.org/amigo/term/query_id",
+  "GO (CC)": "https://amigo.geneontology.org/amigo/term/query_id",
+  "GO (MF)": "https://amigo.geneontology.org/amigo/term/query_id",
   "Interpro":"https://www.ebi.ac.uk/interpro/entry/InterPro/query_id"
 }
