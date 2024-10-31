@@ -8,5 +8,5 @@
   "GO (BP)": "https://amigo.geneontology.org/amigo/term/query_id",
   "GO (CC)": "https://amigo.geneontology.org/amigo/term/query_id",
   "GO (MF)": "https://amigo.geneontology.org/amigo/term/query_id",
-  "Interpro":"https://www.ebi.ac.uk/interpro/entry/InterPro/query_id"
+  "InterPro":"https://www.ebi.ac.uk/interpro/entry/InterPro/query_id"
 }
