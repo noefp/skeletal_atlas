@@ -46,9 +46,19 @@ $tb_more = 0;
 $tb_custom = 1;
 
 // Expression Atlas
-$expr_cards = 1;
 $expr_menu = 1;
-$expr_cartoons = 1;
+
+// Expression tools order: 0 for not shown, >=1 to setup the order
+$positions=[  
+  'description' => 1,
+  'cartoons' => 2,
+  'lines' => 3,
+  'cards' => 4,
+  'heatmap' => 5,
+  'replicates' => 6,
+  'table' => 7
+];
+
 
 // Index
 $rm_citation = 1;
