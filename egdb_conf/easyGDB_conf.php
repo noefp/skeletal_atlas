@@ -47,6 +47,7 @@ $tb_custom = 1;
 
 // Expression Atlas
 $expr_menu = 1;
+$expr_cartoons = 1;
 
 // Expression tools order: 0 for not shown, >=1 to setup the order
 $positions=[  
