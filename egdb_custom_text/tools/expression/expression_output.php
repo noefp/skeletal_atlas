@@ -2,7 +2,6 @@
 <?php include_once realpath("../../../../easy_gdb/header.php");?>
 </header>
 
-
 <body>
 <div>
   <a class="float-right margin-20" href="/easy_gdb/help/08_gene_expression.php" target="_blank"><i class='fa fa-info' style='font-size:20px;color:#229dff'></i> Help</a>
@@ -14,6 +13,11 @@
 
 
 <div class="margin-20">
+
+  <!-- This message would be displayed when the information in the Json "expression_colors" arrays does not match the size -->
+<div id="color_default" class="alert alert-info" style="display:none"><strong>Info:</strong> The default palette has been selected because the size of the attributes
+"expression_colors" in <i>"expression_info.json"</i> do not match !!!</div>
+
 <?php 
 
   $dataset_file_name=["sc_mouse_basic_atlas_v01.txt","00_mouse_basic_atlas_v07.txt","proteomics_tissues_atlas_v01.txt"];
@@ -43,17 +47,24 @@ $data1=get_data($dataset_file_name[0],$gids);
 $data2=get_data($dataset_file_name[1],$gids);
 $data3=get_data($dataset_file_name[2],$gids);
 
+// load expressions colors and ranges
+include_once realpath("../functions/01_expr_colors_range.php");
+
 // create cartoons
 include_once realpath("../functions/03_expr_load_cartoons_html.php");
 
-// create data table
-include_once realpath("../functions/03_expr_load_avg_table_html.php");
+// create lines graph
+include_once realpath("../functions/03_expr_load_bars_html.php");
 
 // create heatmap
 include_once realpath("../functions/03_expr_load_heatmap_html.php");
 
-// create lines graph
-include_once realpath("../functions/03_expr_load_bars_html.php");
+// create replicates graph
+// include_once realpath("../functions/03_expr_load_replicates_html.php");
+
+// create data table
+include_once realpath("../functions/03_expr_load_avg_table_html.php");
+
 
 // Description dataset
 include_once realpath('../functions/01_expr_load_dataset_description.php');

@@ -7,7 +7,7 @@
 ini_set('memory_limit', '256M'); // set memory limit php
 
 // $scatter_one_gene = [];
-$scatter_one_sample = [];
+$scatter_one_sample =[];
 $scatter_all_genes = [];
 $replicates_all_genes = [];
 
@@ -15,6 +15,9 @@ $replicates_all_genes = [];
 
 function get_data($expr_file,$gids)
 {        
+    // echo $expr_file;
+    $name_file =str_replace(".txt","",$expr_file);
+    
     $expr_file_path= $GLOBALS["expression_basic_atlas_path"]."/".$expr_file;
 
     if(file_exists("$expr_file_path") && isset($gids))
@@ -28,6 +31,8 @@ function get_data($expr_file,$gids)
         $replicates = [];
         $replicates_all=[];
         $found_genes=[];
+        $scatter_all_genes=[];
+
 
         //gets each replicate value for each gene
         foreach ($tab_file as $line) {
@@ -62,9 +67,9 @@ function get_data($expr_file,$gids)
         // create header table with sample names       
         if($found_genes)
         { 
-            array_push($table_code_array,"<div style=\"margin: auto; overflow: scroll;\"> <table class=\"tblResults inline-box table table-striped\">");
+            array_push($table_code_array,"<div style=\"margin: auto; overflow: auto;\"><table class=\"tblResults inline-box table table-striped table-bordered\">");
             $header_content = [];
-            array_push($table_code_array, "<thead><tr><th style=text-align:center>"."ID"."</th>");
+            array_push($table_code_array, "<thead><tr><th style=\"text-align:center\">"."ID"."</th>");
 
             $sample_names =array_keys($replicates_all[$found_genes[0]]);
 
@@ -80,13 +85,14 @@ function get_data($expr_file,$gids)
 
 // ------------------------------------------------------- End create the header table------------------------------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------Get average data table-------------------------------------------------------------------------------------------------------------
-//          $scatter_pos = 1;
+         $scatter_pos = 1;
              // set the ensembl links and ID names into column ID 
 
             foreach(array_keys($replicates_all) as $ID)
-            {   array_push($table_code_array,"<tr>");
+            {
+                array_push($table_code_array,"<tr>");
                 $link=load_links_dataset_names($expr_file,$ID);
-                array_push($table_code_array,"<td style=text-align:center>$link</td>");
+                array_push($table_code_array,"<td style=\"text-align:center\">$link</td>");
                 //echo "<p>".var_dump($replicates_all[$ID])."</p>";
 
         // print expression average values $r_key is like "Sample1" and $r_value is like [4.4,2.3,8.1]
@@ -142,8 +148,38 @@ function get_data($expr_file,$gids)
                     $cartoons_all_genes[$ID] = [];
                     $cartoons_all_genes[$ID][$r_key]=$average;
                 } // end save cartoons data
-                
+
+
+                //----------------------save scatter data-------------------------------------------------------------------------------------
+        //   //save replicates
+          foreach ($r_value as $one_rep) {
+            $one_replicate_pair = [$scatter_pos, $one_rep];
+            
+        //     //save samples and add replicates
+            $scatter_one_sample["name"] = $r_key;
+            if ($scatter_one_sample["data"]) {
+              array_push($scatter_one_sample["data"], $one_replicate_pair );
+            } else {
+              $scatter_one_sample["data"] = [];
+              array_push($scatter_one_sample["data"], $one_replicate_pair );
             }
+            
+          
+          $scatter_pos++;
+        }
+          
+         //   //save gene and add samples with replicates
+          if ($scatter_all_genes[$ID]) {
+            array_push($scatter_all_genes[$ID],$scatter_one_sample);
+          } else {
+            $scatter_all_genes[$ID] = [];
+            array_push($scatter_all_genes[$ID], $scatter_one_sample );
+          }
+                    
+          $scatter_one_sample = [];
+                
+        }
+        // ----- end scartter data -----------------------------------------------------    
 
                 array_push($heatmap_series, $heatmap_one_gene);
                 $heatmap_one_gene = [];
@@ -152,33 +188,8 @@ function get_data($expr_file,$gids)
                 array_push($table_code_array,"</tr>");
 // -------------------- end data table-------------------------------------------------------------------------------------------
 
-//----------------------save scatter data-------------------------------------------------------------------------------------
-        //   //save replicates
-        //   foreach ($r_value as $one_rep) {
-        //     $one_replicate_pair = [$scatter_pos, $one_rep];
-            
-        //     //save samples and add replicates
-        //     $scatter_one_sample["name"] = $r_key;
-        //     if ($scatter_one_sample["data"]) {
-        //       array_push($scatter_one_sample["data"], $one_replicate_pair );
-        //     } else {
-        //       $scatter_one_sample["data"] = [];
-        //       array_push($scatter_one_sample["data"], $one_replicate_pair );
-        //     }
-            
-        //   }
-//         //   $scatter_pos++;
-          
-//         //   //save gene and add samples with replicates
-//         //   if ($scatter_all_genes[$gene_name]) {
-//         //     array_push($scatter_all_genes[$gene_name], $scatter_one_sample );
-//         //   } else {
-//         //     $scatter_all_genes[$gene_name] = [];
-//         //     array_push($scatter_all_genes[$gene_name], $scatter_one_sample );
-//         //   }
-          
-          
-//         //   $scatter_one_sample = [];
+
+
            
     } //end foreach;
 
@@ -192,13 +203,13 @@ function get_data($expr_file,$gids)
 //   //     $replicates = [];
 //   //     $heatmap_one_gene = [];
 //   //     // $scatter_one_gene = [];
-//   //     $scatter_one_sample = [];
+    //   $scatter_one_sample = [];
 //   //   } // end if gene in input list
     
     
-        //} // each line, each gene foreach
+        // } // each line, each gene foreach
         array_push($table_code_array,"</tbody></table></div><br>");
-        } // end table
+     } // end table
 
 
         $array_all[]=[];
@@ -206,6 +217,8 @@ function get_data($expr_file,$gids)
         $array_all["header"]=$header_content;
         $array_all["heatmap"]=$heatmap_series;
         $array_all["cartoons"]=json_encode($cartoons_all_genes);
+        $array_all["replicates"]= $scatter_all_genes;
+        //  print_r($array_all["replicates"]);
 
         return $array_all;
     }
@@ -216,30 +229,6 @@ function get_data($expr_file,$gids)
 ?>
 
 
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.bootstrap4.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.colVis.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.print.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.bootstrap4.min.css">
 
 
-<script type="text/javascript">
-    $(document).ready(function() {
-      $('.tblResults').DataTable({
-        "dom": 'Bfrtlpi',          // Define los controles que se mostrarán
-        "ordering":  true,          // Habilita la ordenación de columnas
-        // "searching": true,         // Habilita la búsqueda dentro de la tabla
-        // "paging": true,            // Habilita la paginación
-        "buttons": ['copy', 'csv', 'excel', 'colvis'], // Botones que se mostrarán
-      });
-    $(".DataTables_filter").addClass("float-right");
-    $(".DataTables_info").addClass("float-left");
-    $(".DataTables_paginate").addClass("float-right");
 
-});
-</script>

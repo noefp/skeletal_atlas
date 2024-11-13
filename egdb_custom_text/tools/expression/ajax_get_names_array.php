@@ -1,16 +1,17 @@
  <?php
  
 $files = $_POST["expr_file"];
-$expr_file_path = $_POST["expr_file_path"];
+$file_path = $_POST["expr_file_path"];
+
 $file_array = array();
 
 foreach($files as $file)
 {
-  $expr_file_path= $expr_file_path."/".$file;
+  $expr_file_path=$file_path."/".$file;
 
 
-  if ( file_exists("$expr_file_path") ) {
-    $tab_file = file("$expr_file_path");
+  if ( file_exists($expr_file_path) ) {
+    $tab_file = file($expr_file_path);
     $first_line = array_shift($tab_file);
 
     //gets each replicate value for each gene

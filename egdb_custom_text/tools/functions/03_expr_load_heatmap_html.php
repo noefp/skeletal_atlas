@@ -23,7 +23,7 @@
 
 
 <!-- JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> 
+<!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>  -->
 
 <script type="text/javascript">
   var sample_array=[];

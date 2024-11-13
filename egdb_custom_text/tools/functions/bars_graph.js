@@ -1,6 +1,5 @@
 
-var color_array = ["#ea5545", "#f46a9b", "#ef9b20", "#edbf33", "#ede15b", "#bdcf32", "#87bc45", "#27aeef", "#b33dc6",'#546ead','#666','#999','#ccc','#000',"#a61101", "#c89", "#ab5700", "#798b00", "#437801", "#036aab", "#d0f", "#700982", "#fe9989", "#f8aedf", "#ffdf64", "#cbff89", "#6befff", "#f77ffa","#b66"];
-var legend_color_ranges=["#c8c8c8","#f0c320","#ff8800","#ff7469","#de2515","#b71005","#0bb4ff","#8000FF"];
+ var color_array = ["#ea5545", "#f46a9b", "#ef9b20", "#edbf33", "#ede15b", "#bdcf32", "#87bc45", "#27aeef", "#b33dc6",'#546ead','#666','#999','#ccc','#000',"#a61101", "#c89", "#ab5700", "#798b00", "#437801", "#036aab", "#d0f", "#700982", "#fe9989", "#f8aedf", "#ffdf64", "#cbff89", "#6befff", "#f77ffa","#b66"];
 
 //#### Lines
 
@@ -9,83 +8,114 @@ var legend_color_ranges=["#c8c8c8","#f0c320","#ff8800","#ff7469","#de2515","#b71
 var chart=['#chart_bar1','#chart_bar2','#chart_bar3'];
 var name_table=['Single Cell RNA-seq','Bulk RNA-seq','Proteomics'];
 var bar_chart=[];
+var i=0;
 
-for(var i=0;i<3;i++)
-{
-  var options = {
-    series: bar_series[i],
-    chart: {
-      type:'line',
-      height: 500,
-      zoom: {
-        enabled: false,
-        type: 'xy'
+cartoon_load.forEach(load => {
+  if(load){
+    var options = {
+      series: bar_series[i],
+      chart: {
+        type:'line',
+        height: 500,
+        zoom: {
+         enabled: false,
+          type: 'xy'
+        },
+        toolbar: {
+          show: true
+        },
       },
-      toolbar: {
-        show: true
+
+      colors: color_array,
+
+      dataLabels: {
+        enabled: true,
+        offsetY: -5,
+        colors:["#FF0000"]
       },
-    },
 
-    colors: color_array,
+      stroke: {
+        width: 2,
+      },
 
-    dataLabels: {
-      enabled: true,
-      offsetY: -5,
-      colors:["#FF0000"]
-    },
-
-    stroke: {
-      width: 2,
-    },
-
-    title: {
-      text: name_table[i],
-      align: 'left'
-    },
-    markers: {
-      size: 3,
-    },
-
-    xaxis: {
-      categories: sample_array[i],
-      labels: {
-        rotate: -50,
-        rotateAlways: true,
-        hideOverlappingLabels: true,
-        trim: false,
-        minHeight: 120
-      }
-    },
-    yaxis: {
       title: {
-        text: 'Expression value'
-      }
-    },
-    legend: {
-      position: 'top',
-      horizontalAlign: 'center',
-      inverseOrder: true,
-      floating: true,
-      offsetY: -30,
-      offsetX: 25
-    },
-    tooltip: {
-      inverseOrder: true
-    }
-  };
+        text: name_table[i],
+        align: 'left'
+      },
+      markers: {
+        size: 3,
+      },
 
-  bar_chart[i] = new ApexCharts(document.querySelector(chart[i]), options);
-}
+      xaxis: {
+        categories: sample_array[i],
+        labels: {
+          rotate: -50,
+          rotateAlways: true,
+          hideOverlappingLabels: true,
+          trim: false,
+          minHeight: 120
+        }
+      },
+      yaxis: {
+        title: {
+          text: 'Expression value'
+        }
+      },
+      legend: {
+        position: 'top',
+        horizontalAlign: 'center',
+        inverseOrder: true,
+        floating: true,
+        offsetY: -30,
+        offsetX: 25,
+        fontSize: 13,
+        showForSingleSeries: true,
+        markers: {
+          size: 11,
+          shape: 'square',
+          strokeWidth: 2,  
+        },
+      },
+      tooltip: {
+        inverseOrder: true
+      }
+    };
+  }else{
+    var options = {
+      series: bar_series[i],
+      chart: {
+        type:'line',
+        height: 1,
+        zoom: {
+         enabled: false,
+          type: 'xy'
+        },
+        toolbar: {
+          show: true
+        },
+      },
+      title: {
+        text: name_table[i],
+        align: 'left'
+      },
+    };
+  }
+
+    bar_chart[i] = new ApexCharts(document.querySelector(chart[i]), options);
+    bar_chart[i].render();
+    i++;
+  });
+
 
 $( "#lines_btn" ).click(function() {
-for(var n=0;n<3;n++)
-  {  
+  for(var n=0;n<3;n++)
+    {  
     bar_chart[n].updateOptions({
       chart: {
         type: 'line'
       },
       stroke: {
-        width: 2
+        width: 3,
       },
     });
     } 
@@ -94,8 +124,8 @@ for(var n=0;n<3;n++)
 
 
 $( "#bars_btn" ).click(function() {
-for(var n=0;n<3;n++)
-{  
+  for(var n=0;n<3;n++)
+    { 
   bar_chart[n].updateOptions({
     chart: {
       type: 'bar'
@@ -115,7 +145,7 @@ $(document).ready(function () {
     $("#banner_bars").click(function(){
       if (!bar_shown) {
         for(var n=0;n<3;n++)
-          {   
+          { 
             bar_chart[n].render();
 
             bar_chart[n].updateOptions({
@@ -133,6 +163,5 @@ $(document).ready(function () {
     
     });
  });
-
 
 

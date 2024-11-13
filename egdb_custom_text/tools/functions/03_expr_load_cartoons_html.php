@@ -1,5 +1,4 @@
 <!-- #####################             Cartoons             ################################ -->
-<!-- #####################             Cartoons             ################################ -->
 <center>
 <?php
 
@@ -8,7 +7,7 @@ $jcartoons=[];
 $canvas_w = [];
 $canvas_h=[];
 $titles=["Single Cell RNA-seq","Bulk RNA-seq","Proteomics"];
-$titles_color=['blue','green','orange'];
+// $titles_color=['blue','green','orange'];
 $cartoons=[];
 
 $myCanvas=["myCanvas","myCanvas2","myCanvas3"];
@@ -16,6 +15,7 @@ $canvas_div=["canvas_div","canvas_div1","canvas_div2"];
 $cartoon_labels=["cartoon_labels1","cartoon_labels2","cartoon_labels3"];
 $sel_cartoons=["sel_cartoons1","sel_cartoons2","sel_cartoons3"];
 $kj_image=["_kj_image","_kj_image1","_kj_image2"];
+$cartoon_load=[];
 
 
 echo '<div class="collapse_section pointer_cursor" data-toggle="collapse" data-target="#cartoons_frame" aria-expanded="true">';
@@ -34,7 +34,7 @@ foreach($dataset_file_name as $index => $dataset )
 
         //echo "<p>annot_hash cartoons exists and was found!</p>";
 
-        if ($expr_cartoons && file_exists($expression_path."/$cartoon_conf") ) {
+        if (($positions['cartoons']!=0) && file_exists($expression_path."/$cartoon_conf") ) {
           
           $cartoons_json = file_get_contents($expression_path."/$cartoon_conf");
           
@@ -73,20 +73,21 @@ foreach($dataset_file_name as $index => $dataset )
 
           echo '<div id="cartoons_frame" class="row collapse show" style="margin:0px; border:2px solid #666; padding-top:7px; width:100%">';
           
-          echo '<div class="d-inline-flex" style="width:100%; margin:10px;">'; 
+          // echo "<div id=\"cartoon_frame$index\" class=\"d-inline-flex\" style=\"width:100%; margin:10px;\">"; 
           echo "<div class=\"form-group d-inline-flex\" style=\"width: 450px;margin-top:-3px;\">";
 
           // if($index==0){
             echo "<label for=\"$sel_cartoons[$index]\" style=\"width: 150px; margin-top:7px\"><i><b>Select gene:</b></i></label>";
-            echo "<select class=\"form-control\" style=\"font-weight: bold\" id=\"$sel_cartoons[$index]\">";
+            echo "<select class=\"form-control\" id=\"$sel_cartoons[$index]\">";
             foreach ($found_genes as $gene) {
               echo "<option value=\"$gene\">$gene</option>";
             }
             echo "</select>";
           // }
           echo "</div>";
-          
-          echo "<div class=\"d-inline-flex\" style=\"width:100%; margin:10px\" id=\"colors$index\">";  
+          // echo "<link rel=\"stylesheet\" href=\"styles.css\">";
+          echo "<div class=\"color-bar\" style=\"margin:10px\" id=\"colors$index\">";  
+          echo "<table id=\"color-table$index\" class=\"color\"></table>";
           // echo '<span class="circle" style=background-color:#C7FFED"></span> Lowest <1';
           // echo '<span class="circle" style="background-color:#CCFFBD"></span> >=1';
           // echo '<span class="circle" style="background-color:#FFFF5C"></span> >=2';
@@ -95,43 +96,53 @@ foreach($dataset_file_name as $index => $dataset )
           // echo '<span class="circle" style="background-color:#C70039"></span> >=100';
           // echo '<span class="circle" style="background-color:#900C3F"></span> >=200';
           // echo '<span class="circle" style="background-color:#581845"></span> >=5000';
-          echo "</div>";
-          echo '</div>';
+          echo "</div>"; 
+          // echo '</div>';
 
         echo "<div style=\"margin-left:auto;margin-right: auto;\">";
-        
           echo "<div class=\"float-left\">";
             echo "<div class=\"cartoons_canvas_frame\">";
               echo "<div id=\"$canvas_div[$index]\">";
                 echo "<b><label>".$titles[$index]."</label></b>";
-                echo "<div id=\"$myCanvas[$index]\">";
+                  echo "<div id=\"$myCanvas[$index]\">";
+                  if($cartoons[$index][$found_genes[0]]){
                   echo "Your browser does not support the HTML5 canvas";
+                  }else{
+                    echo "Genes not found";
+                  }
+                  echo "</div>";
                 echo "</div>";
-              echo "</div>";
               echo "<br>";
             echo "</div>";
           echo "</div>";
         
-            echo "<div class=\"float-right\">";
-          
+          echo "<div class=\"float-right\">";
+    
             echo "<ul id=\"$cartoon_labels[$index]\" style=\"text-align:left\">";
 
-            foreach ($cartoons[$index][$found_genes[0]] as $sample_name => $ave_value) {
+            if($cartoons[$index][$found_genes[0]]){
+              array_push($cartoon_load,true);
+
+              foreach ($cartoons[$index][$found_genes[0]] as $sample_name => $ave_value) {
             
-              // echo "<li class=\"cartoon_values pointer_cursor\" id=\"$sample_name"."_kj_image\">".$sample_name.": ".$ave_value."</li>";
-              echo "<li class=\"cartoon_values pointer_cursor\" id=\"$sample_name"."_kj_image$index\">".$sample_name.": ".$ave_value."</li>";
+                // echo "<li class=\"cartoon_values pointer_cursor\" id=\"$sample_name"."_kj_image\">".$sample_name.": ".$ave_value."</li>";
+                echo "<li class=\"cartoon_values pointer_cursor\" id=\"$sample_name"."_kj_image$index\">".$sample_name.": ".$ave_value."</li>";
+              } // end foreach
+
+            }// end if
+            else{
+              array_push($cartoon_load,false);
             }
-                     
+
             echo "</ul>";
           
-            echo "</div>";
-        
           echo "</div>";
+        echo "</div>";
 
-        echo '</div>';
+    echo '</div>';
 
-        }//end cartoons conf
-        else {
+      }//end cartoons conf
+      else {
       echo "<p>cartoons.json file was not found!</p>";
     }
         
@@ -148,30 +159,6 @@ foreach($dataset_file_name as $index => $dataset )
 ?>
 </center>
 
-<!--  Create expression colors palete (HTML) ----------------------------------------------------------------------->
-<script type='text/javascript'>
-        var colors_list = ["#C7FFED","#CCFFBD","#FFFF5C","#FFC300","#FF5733","#C70039","#900C3F","#581845"];
-        var range =["Lowest <1",">=1",">=2",">=10",">=50",">=100",">=200",">=5000"];
-
-        // Insertamos los genes en la lista del modal
-      for(var n=0; n<3;n++)
-      {
-        for(var i in colors_list)
-        {
-            var Color_range = document.getElementById('colors'+[n]);
-            var listItem = document.createElement('span');
-            var listRange = document.createElement('lable');
-            listItem.style.backgroundColor=colors_list[i];
-            listItem.setAttribute("class","circle");
-            Color_range.appendChild(listItem);
-            listRange.textContent = range[i];
-            Color_range.appendChild(listRange);
-
-        }
-      }
-</script>
-<!-- ------------------------------------------------------------------------------------------------------ -->
-
 <script type="text/javascript" src="../functions/kinetic-v5.1.0.min.js"></script>
 <script type="text/javascript" src="../functions/cartoons_kinetic.js"></script>      
 <script>
@@ -185,34 +172,56 @@ foreach($dataset_file_name as $index => $dataset )
   var cartoons_all_genes = [];
 
   var img_path = <?php echo json_encode($images_path) ?>;
+  var cartoon_load=<?php echo json_encode($cartoon_load)?>;
 
-  imgObj[0] = <?php echo json_encode($jcartoons[0]) ?>;
-  canvas_h[0] = <?php echo json_encode($canvas_h[0]) ?>;
-  canvas_w[0] = <?php echo json_encode($canvas_w[0]) ?>;
-  cartoons_all_genes[0]= <?php echo $cartoons_data[0] ?>;
-  gene_list[0]= <?php echo json_encode(array_keys(json_decode($cartoons_data[0],true))) ?>;
+  if(cartoon_load[0]){
+    imgObj[0] = <?php echo json_encode($jcartoons[0]) ?>;
+    canvas_h[0] = <?php echo json_encode($canvas_h[0]) ?>;
+    canvas_w[0] = <?php echo json_encode($canvas_w[0]) ?>;
+    cartoons_all_genes[0]= <?php echo $cartoons_data[0] ?>;
+    gene_list[0]= <?php echo json_encode(array_keys(json_decode($cartoons_data[0],true))) ?>;
+  }
 
-  imgObj[1] = <?php echo json_encode($jcartoons[1]) ?>;
-  canvas_h[1] = <?php echo json_encode($canvas_h[1]) ?>;
-  canvas_w[1] = <?php echo json_encode($canvas_w[1]) ?>;
-  cartoons_all_genes[1]= <?php echo $cartoons_data[1] ?>;
-  gene_list[1]= <?php echo json_encode(array_keys(json_decode($cartoons_data[1],true))) ?>;
+  if(cartoon_load[1]){
+    imgObj[1] = <?php echo json_encode($jcartoons[1]) ?>;
+    canvas_h[1] = <?php echo json_encode($canvas_h[1]) ?>;
+    canvas_w[1] = <?php echo json_encode($canvas_w[1]) ?>;
+    cartoons_all_genes[1]= <?php echo $cartoons_data[1] ?>;
+    gene_list[1]= <?php echo json_encode(array_keys(json_decode($cartoons_data[1],true))) ?>;
+  }
 
-  imgObj[2] = <?php echo json_encode($jcartoons[2]) ?>;
-  canvas_h[2] = <?php echo json_encode($canvas_h[2]) ?>;
-  canvas_w[2] = <?php echo json_encode($canvas_w[2]) ?>;
-  cartoons_all_genes[2]= <?php echo $cartoons_data[2] ?>;
-  gene_list[2]= <?php echo json_encode(array_keys(json_decode($cartoons_data[2],true))) ?>;
-  
-  // alert(cartoons_all_genes[0]);
+  if(cartoon_load[2]){
+    imgObj[2] = <?php echo json_encode($jcartoons[2]) ?>;
+    canvas_h[2] = <?php echo json_encode($canvas_h[2]) ?>;
+    canvas_w[2] = <?php echo json_encode($canvas_w[2]) ?>;
+    cartoons_all_genes[2]= <?php echo $cartoons_data[2] ?>;
+    gene_list[2]= <?php echo json_encode(array_keys(json_decode($cartoons_data[2],true))) ?>;
+  } 
 
 // if (cartoons) {
- for(var i=0;i<3;i++)
+//  for(var i=0;i<3;i++)
+var i=0; 
+cartoon_load.forEach(load =>
  {
+  if(load){
    canvas[i] = create_canvas(canvas_h[i],canvas_w[i],myCanvas[i]);
-  draw_gene_cartoons(canvas[i],imgObj[i],cartoons_all_genes[i],gene_list[i][0],i);
- }
+   draw_gene_cartoons(canvas[i],imgObj[i],cartoons_all_genes[i],gene_list[i][0],i,ranges,colors);
 
+
+     gene_expr_values = cartoons_all_genes[i][gene_list[i][0]];
+    
+     for (var sample in gene_expr_values){
+    //    // alert(sample)
+       expr_value = gene_expr_values[sample];
+       sample_id=sample+"_kj_image"+i;    
+       color_rgb=get_expr_color(expr_value,ranges,colors);
+    //    $(document.getElementById(sample_id)).html(sample+": "+expr_value).css('color','rgb('+color_rgb+')');
+       $(document.getElementById(sample_id)).html(sample+": "+expr_value).css('text-decoration',' double underline').css('text-decoration-color','rgb('+color_rgb+')');
+      }
+    }
+    i++;
+   });
+    
 
 
  // ######################################################## Cartoons gene selection
@@ -281,7 +290,7 @@ foreach($dataset_file_name as $index => $dataset )
     // alert("genelist: "+gene_list[0].findIndex((element) => element == cartoon_active_gene))
     cartoon_gene_select_index = gene_list[0].findIndex((element) => element == cartoon_active_gene);
     
-    draw_gene_cartoons(canvas[0],imgObj[0],cartoons_all_genes[0],gene_list[0][cartoon_gene_select_index],0);
+    draw_gene_cartoons(canvas[0],imgObj[0],cartoons_all_genes[0],gene_list[0][cartoon_gene_select_index],0,ranges,colors);
     
     gene_expr_values = cartoons_all_genes[0][cartoon_active_gene];
     
@@ -291,8 +300,11 @@ foreach($dataset_file_name as $index => $dataset )
     for (var sample in gene_expr_values){
       // alert(sample)
       expr_value = gene_expr_values[sample];
-      sample_id=sample+"_kj_image0";    
-      $(document.getElementById(sample_id)).html(sample+": "+expr_value);
+      sample_id=sample+"_kj_image0"; 
+      color_rgb=get_expr_color(expr_value,ranges,colors);
+      // $(document.getElementById(sample_id)).html(sample+": "+expr_value).css('color','rgb('+color_rgb+')');
+      $(document.getElementById(sample_id)).html(sample+": "+expr_value).css('text-decoration','double underline').css('text-decoration-color','rgb('+color_rgb+')');
+      // $(document.getElementById(sample_id)).html(sample+": "+expr_value);
     }
     
   });
@@ -307,7 +319,7 @@ foreach($dataset_file_name as $index => $dataset )
     // alert("genelist: "+gene_list[0].findIndex((element) => element == cartoon_active_gene))
     cartoon_gene_select_index = gene_list[1].findIndex((element) => element == cartoon_active_gene);
     
-    draw_gene_cartoons(canvas[1],imgObj[1],cartoons_all_genes[1],gene_list[1][cartoon_gene_select_index],1);
+    draw_gene_cartoons(canvas[1],imgObj[1],cartoons_all_genes[1],gene_list[1][cartoon_gene_select_index],1,ranges,colors);
     
     gene_expr_values = cartoons_all_genes[1][cartoon_active_gene];
     
@@ -315,10 +327,12 @@ foreach($dataset_file_name as $index => $dataset )
     // var html_array = [];
     
     for (var sample in gene_expr_values){
-      // alert(sample)
       expr_value = gene_expr_values[sample];
       sample_id=sample+"_kj_image1";    
-      $(document.getElementById(sample_id)).html(sample+": "+expr_value);
+      color_rgb=get_expr_color(expr_value,ranges,colors);
+      // $(document.getElementById(sample_id)).html(sample+": "+expr_value).css('color','rgb('+color_rgb+')');
+      $(document.getElementById(sample_id)).html(sample+": "+expr_value).css('text-decoration','double underline').css('text-decoration-color','rgb('+color_rgb+')');
+      // $(document.getElementById(sample_id)).html(sample+": "+expr_value);
     }
     
   });
@@ -333,7 +347,7 @@ foreach($dataset_file_name as $index => $dataset )
     // alert("genelist: "+gene_list[0].findIndex((element) => element == cartoon_active_gene))
     cartoon_gene_select_index = gene_list[2].findIndex((element) => element == cartoon_active_gene);
     
-    draw_gene_cartoons(canvas[2],imgObj[2],cartoons_all_genes[2],gene_list[2][cartoon_gene_select_index],2);
+    draw_gene_cartoons(canvas[2],imgObj[2],cartoons_all_genes[2],gene_list[2][cartoon_gene_select_index],2,ranges,colors);
     
     gene_expr_values = cartoons_all_genes[2][cartoon_active_gene];
     
@@ -344,8 +358,67 @@ foreach($dataset_file_name as $index => $dataset )
       // alert(sample)
       expr_value = gene_expr_values[sample];
       sample_id=sample+"_kj_image2";    
-      $(document.getElementById(sample_id)).html(sample+": "+expr_value);
+      color_rgb=get_expr_color(expr_value,ranges,colors);
+      // $(document.getElementById(sample_id)).html(sample+": "+expr_value).css('color','rgb('+color_rgb+')');
+      $(document.getElementById(sample_id)).html(sample+": "+expr_value).css('text-decoration','double underline').css('text-decoration-color','rgb('+color_rgb+')');
+      // $(document.getElementById(sample_id)).html(sample+": "+expr_value);
     }
     
   });
+
+// </script>
+
+<script>
+// color table function
+function crearFila(colors,ranges,id) {
+     const tabla = document.getElementById(id);
+    const fila_color = document.createElement('tr');
+    colors.forEach(color => {
+        const celda = document.createElement('td');
+        celda.style.backgroundColor = color;
+        fila_color.appendChild(celda);
+    });
+    const fila_range = document.createElement('tr');
+    ranges.forEach(range => {
+        const celda = document.createElement('th');
+        celda.textContent=range;
+        fila_range.appendChild(celda);
+    });
+
+    tabla.appendChild(fila_range);
+    tabla.appendChild(fila_color);
+}
+
+crearFila(colors,ranges_text,'color-table0');
+crearFila(colors,ranges_text,'color-table1');
+crearFila(colors,ranges_text,'color-table2');
+
 </script>
+
+<style>
+  .color-bar{
+    width:100%;
+    display:block;
+    text-align: center;
+
+  }
+
+.color-bar table {
+    /* width:80%; */
+    margin-left: 30px; 
+    margin-left:auto;
+    margin-right: auto; 
+ } 
+
+.color-bar td, th {
+    height: 20px;
+    width: 100px;
+    text-align: center;
+}
+
+
+.cartoon_values:hover{
+/* font-size:18px; */
+font-weight: bold;
+}
+</style>

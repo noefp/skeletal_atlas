@@ -4,7 +4,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 
-<!-------------------- Modal Warnning popup ------------------------------------------------------->
+<!-- Modal -->
 <div class="modal fade" id="genesNotFoundModal" tabindex="-1" aria-labelledby="genesNotFoundLabel" aria-hidden="true" data-bs-backdrop="static">
   <div class="modal-dialog">
   <!-- <div class="modal-dialog modal-sm"> -->
@@ -28,20 +28,19 @@
     </div>
   </div>
 </div>
-<!-- --------------------------------------------------------------------------------------------------------- -->
+
 
 
 <?php
  $not_found_list=[];
  $gene_name_list=[];
  
- foreach($dataset_file_name as $expr_file){ 
-  $expr_file_path= $expression_basic_atlas_path."/".$expr_file;
+foreach($dataset_file_name as $expr_file){ 
+    $expr_file_path= $GLOBALS["expression_basic_atlas_path"]."/".$expr_file;
 
-
-    if(file_exists("$expr_file_path"))
+    if(file_exists($expr_file_path))
     {
-        $tab_file = file("$expr_file_path");
+        $tab_file = file($expr_file_path);
         $first_line = array_shift($tab_file);
         $header = explode("\t", rtrim($first_line));
 
@@ -77,13 +76,12 @@ echo(implode($separator=" , ",$not_found_list)."</i> NOT FOUND !!!"."</div>");
 echo "<script type='text/javascript'>
         var genesNotFound = " . json_encode($not_found_list) . ";
 
-        // Insertamos los genes en la lista del modal
         var geneListElement = document.getElementById('geneNotFoundList');
             var listItem = document.createElement('p');
             listItem.textContent = genesNotFound;
             geneListElement.appendChild(listItem);
 
-        // Mostramos el modal con la lista de genes no encontrados
+        // show the modal with gnee lista not founds
         var myModal = new bootstrap.Modal(document.getElementById('genesNotFoundModal'), {
             keyboard: false
         });

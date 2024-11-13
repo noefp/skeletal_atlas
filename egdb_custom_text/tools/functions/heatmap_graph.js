@@ -1,14 +1,21 @@
 
-var color_array = ["#ea5545", "#f46a9b", "#ef9b20", "#edbf33", "#ede15b", "#bdcf32", "#87bc45", "#27aeef", "#b33dc6",'#546ead','#666','#999','#ccc','#000',"#a61101", "#c89", "#ab5700", "#798b00", "#437801", "#036aab", "#d0f", "#700982", "#fe9989", "#f8aedf", "#ffdf64", "#cbff89", "#6befff", "#f77ffa","#b66"];
+// var color_array = ["#ea5545", "#f46a9b", "#ef9b20", "#edbf33", "#ede15b", "#bdcf32", "#87bc45", "#27aeef", "#b33dc6",'#546ead','#666','#999','#ccc','#000',"#a61101", "#c89", "#ab5700", "#798b00", "#437801", "#036aab", "#d0f", "#700982", "#fe9989", "#f8aedf", "#ffdf64", "#cbff89", "#6befff", "#f77ffa","#b66"];
        
  // ######################################################## Heatmap btn
-  var color_ranges=[{from:0,to:0.99,name:"0-0.99",color:"#c8c8c8"},{from:1,to:2.99,name:"1-2.99",color:"#f0c320"},{from:3,to:9.99,name:"3-9.99",color:"#ff8800"},{from:10,to:49.99,name:"10-49.99",color:"#ff7469"},{from:50,to:99.99,name:"50-99.99",color:"#de2515"},{from:100,to:199.99,name:"100-199.99",color:"#b71005"},{from:200,to:4999.99,name:"200-4999.99",color:"#0bb4ff"},{from:5000,to:20000,name:"5000-infinite",color:"#8000FF"}];
-  
-  var legend_color_ranges=["#c8c8c8","#f0c320","#ff8800","#ff7469","#de2515","#b71005","#0bb4ff","#8000FF"];
+
+ var legend_color_ranges=colors; 
+ var color_ranges=[];
+ var i=0;
+
+ legend_color_ranges.forEach(colors => {
+    color_ranges.push({from:ranges[i][0],to:ranges[i][1],name:ranges_text[i],color:colors})
+    i++;
+ }); 
+
 
     $( "#red_color_btn" ).click(function() {
         // alert("hi");
-        for(var n=0;n<3;n++)
+        for(var n=0;n<=i;n++)
         {
             heatmap_chart[n].updateOptions({
                 colors: ["#ff0000"],
@@ -28,7 +35,7 @@ var color_array = ["#ea5545", "#f46a9b", "#ef9b20", "#edbf33", "#ede15b", "#bdcf
       
       $( "#blue_color_btn" ).click(function() {
         // alert("hi");
-        for(var n=0;n<3;n++)
+        for(var n=0;n<=i;n++)
         {
             heatmap_chart[n].updateOptions({
                 colors: ["#008FFB"],
@@ -46,7 +53,7 @@ var color_array = ["#ea5545", "#f46a9b", "#ef9b20", "#edbf33", "#ede15b", "#bdcf
       
       $( "#range_color_btn" ).click(function() {
         // alert("hi: "+color_ranges);
-        for(var n=0;n<3;n++)
+        for(var n=0;n<=i;n++)
         {
             heatmap_chart[n].updateOptions({
                 colors: legend_color_ranges,
@@ -69,9 +76,10 @@ var color_array = ["#ea5545", "#f46a9b", "#ef9b20", "#edbf33", "#ede15b", "#bdcf
 var chart=['#chart1','#chart2','#chart3'];
 var name_table=['Single Cell RNA-seq','Bulk RNA-seq','Proteomics'];
 var heatmap_chart=[];
+var i=0;
 
-for(var i=0;i<3;i++)
-{
+cartoon_load.forEach(load => {
+  if(load){
     var options = {
         series: heatmap_series[i],
         chart: {
@@ -81,7 +89,7 @@ for(var i=0;i<3;i++)
         dataLabels: {
           enabled: true
         },
-        colors: color_array,
+        // colors: color_array,
         plotOptions: {
           heatmap: {
             shadeIntensity: 0.5,
@@ -92,6 +100,17 @@ for(var i=0;i<3;i++)
             }
           }
         },
+
+        legend: {
+          fontSize: 13,
+          showForSingleSeries: true,
+          markers: {
+            size: 10,
+            shape: 'circle',
+            strokeWidth: 2,
+          
+          },
+        },
         title: {
           text: name_table[i]
         },
@@ -99,14 +118,28 @@ for(var i=0;i<3;i++)
         xaxis: {
           type: 'category',
           categories: sample_array[i],
-          tickAmount: sample_array[i].length-1
+          tickAmount: sample_array[i].length-1,
         }
         
+      };
+    }    
+    else
+    {
+      var options = {
+        chart: {
+          height: 50,
+          type: 'heatmap',
+        },
+        title: {
+          text: name_table[i]
+        },  
       };    
-     
+    }
+
     heatmap_chart[i] = new ApexCharts(document.querySelector(chart[i]), options);
+    i++;
     
-}// end for
+});// end foreach
 
 $(document).ready(function () {
   // ######################################################## Heatmap

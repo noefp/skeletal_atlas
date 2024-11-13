@@ -29,19 +29,15 @@
               <div class="input-group-append">
                 <button id="add_gene_btn" class="btn btn-success"><i class="fas fa-angle-double-right" style="font-size:28px;color:white"></i></button>
               </div>
-            </div>
-            
+            </div>      
           </div>
-           
-          <br>
-          
+          <br><br>
           <div>
            <label for="typicalGeneSelect">Add typical gene markers for:</label>
             <select id=typicalGeneSelect class="form-control" style="width:auto">
-            </select>     
-          </div>
+            </select>
+          </div>    
         </div>
-          
         <div class="col-sm-6 col-md-6 col-lg-6">
           <!-- <a class="float-right" href="/easy_gdb/tools/expression/expression_menu.php" target="_blank" ><i style='font-size:20px;color:#229dff' ></i> Dataset information</a> -->
           <label for="InputGenes">Paste a list of gene IDs</label>
@@ -61,7 +57,7 @@
 <?php include realpath('../../../../easy_gdb/footer.php'); ?>
 </footer>
 
-<!--  -------------- Modal Error Info popup --------------------------------------------------------------------------------------- -->
+<!--  -------------- Modal Error Info popup--------------------------------------------------------------------------------------- -->
 <div class="modal fade" id="genesEmptyModal" tabindex="-1" aria-labelledby="genesNotFoundLabel" aria-hidden="true" data-bs-backdrop="static">
   <div class="modal-dialog">
   <!-- <div class="modal-dialog modal-sm"> -->
@@ -97,9 +93,11 @@
 
 
 <script>
+
+
   $(document).ready(function () {
     
- //call PHP file ajax_get_names_array.php to get the gene list to autocomplete from the selected dataset file
+    //call PHP file ajax_get_names_array.php to get the gene list to autocomplete from the selected dataset file
     function ajax_call(expr_file,expr_file_path) {
       jQuery.ajax({
         type: "POST",
@@ -120,7 +118,7 @@
           });
         }
       });
-    }; // end ajax_call functionn
+    }; // end ajax_call function
     
     
     $('#add_gene_btn').click(function () {
@@ -173,7 +171,7 @@
     // create selection "Add typical gene markers"------------------------------------------------- 
     $("#InputGenes").val(["Col1a1","Col2a1","Matn3","Prg4","Cdh5","Dmp1"].join("\n"));
 
-    var all_genes=<?php echo file_get_contents("$expression_path/Typical_gene_select.json")?>
+    var all_genes=<?php echo file_get_contents("$root_path/expression_data/skeletal_atlas/Typical_gene_select.json")?>
     // Insertamos los genes en la lista del modal
       var geneListElement = document.getElementById('typicalGeneSelect');
       for(var sample in all_genes)
@@ -189,16 +187,13 @@
       $("#InputGenes").val(select.replaceAll(",", "\n"));
     });
 
+// -------------------------------------------------------------------------------
 
   // call ajax_call function to get the gene list to autocomplete
-
-  var autocomplete_files=["00_mouse_basic_atlas_v07.txt","proteomics_tissues_atlas_v01.txt","sc_mouse_basic_atlas_v01.txt"];
+var expr_file_path= <?php echo json_encode($GLOBALS['expression_basic_atlas_path']); ?>;
+var autocomplete_files=["00_mouse_basic_atlas_v07.txt","proteomics_tissues_atlas_v01.txt","sc_mouse_basic_atlas_v01.txt"];
   //var autocomplete_file= "/var/www/html/expression_data/skeletal_atlas/01mouse_basic_atlas/00_mouse_basic_atlas_v07.txt";
-  
-  expr_file_path = "<?php echo $expression_basic_atlas_path; ?>";
-  
-  
-  ajax_call(autocomplete_files,expr_file_path)
+  ajax_call(autocomplete_files,expr_file_path);
   });
 </script>
 
