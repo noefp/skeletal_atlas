@@ -138,6 +138,11 @@
       }
       
     });
+
+    $('#autocomplete_gene').on('input', function() {
+     if($(this).val() == "")
+      {$('#autocomplete_gene').css("background-color", "white")}
+    });
   
     
     $('#get_expression_form').submit(function () {
