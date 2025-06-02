@@ -4,7 +4,7 @@
     <h1 id="welcome_h1"><img src='<?php echo "$images_path/db_logo_large.png";?>' alt="Mouse_Logo" style="height:200px;"> Welcome to the Skeletal Atlas</h1>
   </div>
 
-  <div id="box">
+  <div id="box" class="width900">
     <div class="row">
       <div class="select">
         <a href="/easy_gdb/tools/expression/comparator_input.php" class="d-flex zoom-img">

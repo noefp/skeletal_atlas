@@ -1,5 +1,5 @@
 <head>
-<?php include ("$tools_path/functions/02_expr_load_links.php");?>
+<?php include ("02_expr_load_links.php");?>
 </head>
 
 <?php
@@ -8,12 +8,13 @@ ini_set('memory_limit', '256M'); // set memory limit php
 
 // $scatter_one_gene = [];
 $scatter_one_sample =[];
-$scatter_all_genes = [];
+// $scatter_all_genes = [];
 $replicates_all_genes = [];
 
 // $table_code_array = [];
 
-function get_data($expr_file,$gids)
+
+function get_data($expr_file,$gids,$id_table)
 {        
     // echo $expr_file;
     $name_file =str_replace(".txt","",$expr_file);
@@ -63,11 +64,10 @@ function get_data($expr_file,$gids)
         $heatmap_one_gene = [];
         $heatmap_series = [];
         $cartoons_all_genes = [];
-    
         // create header table with sample names       
         if($found_genes)
         { 
-            array_push($table_code_array,"<div style=\"margin: auto; overflow: auto;\"><table class=\"tblResults inline-box table table-striped table-bordered\">");
+            array_push($table_code_array,"<div style=\"margin: auto; overflow: auto;\"\"><table id=$id_table class=\"tblResults inline-box table table-striped table-bordered\">");
             $header_content = [];
             array_push($table_code_array, "<thead><tr><th style=\"text-align:center\">"."ID"."</th>");
 
@@ -79,21 +79,22 @@ function get_data($expr_file,$gids)
                 array_push($table_code_array,"<th style=text-align:center>$r_key</th>");
                 //echo "<p>".$r_key."</p>";
             }
+// *********************** colocar el link en la cabecera de la tabla
+
             array_push($table_code_array,"</tr></thead><tbody>");
             //array_push($table_code_array,"</tbody></table></div>");
             //return $table_code_array;
 
 // ------------------------------------------------------- End create the header table------------------------------------------------------------------------------------------------------------------------
 // ---------------------------------------------------------Get average data table-------------------------------------------------------------------------------------------------------------
-         $scatter_pos = 1;
-             // set the ensembl links and ID names into column ID 
-
+        //  $scatter_pos = 1;
+             // set the ensembl links and ID names into column ID   
             foreach(array_keys($replicates_all) as $ID)
             {
+                $scatter_pos = 1;
                 array_push($table_code_array,"<tr>");
                 $link=load_links_dataset_names($expr_file,$ID);
                 array_push($table_code_array,"<td style=\"text-align:center\">$link</td>");
-                //echo "<p>".var_dump($replicates_all[$ID])."</p>";
 
         // print expression average values $r_key is like "Sample1" and $r_value is like [4.4,2.3,8.1]
                 foreach ($replicates_all[$ID] as $r_key => $r_value) {
@@ -154,7 +155,7 @@ function get_data($expr_file,$gids)
         //   //save replicates
           foreach ($r_value as $one_rep) {
             $one_replicate_pair = [$scatter_pos, $one_rep];
-            
+            // print_r($r_key); print_r($one_replicate_pair);
         //     //save samples and add replicates
             $scatter_one_sample["name"] = $r_key;
             if ($scatter_one_sample["data"]) {
@@ -165,9 +166,9 @@ function get_data($expr_file,$gids)
             }
             
           
-          $scatter_pos++;
+        //   $scatter_pos++;
         }
-          
+            $scatter_pos++;
          //   //save gene and add samples with replicates
           if ($scatter_all_genes[$ID]) {
             array_push($scatter_all_genes[$ID],$scatter_one_sample);
@@ -185,6 +186,7 @@ function get_data($expr_file,$gids)
                 $heatmap_one_gene = [];
 //---------------------- end save heatmap data ---------------------------------------------------------------------------------
 
+// ************************************* zona donde colocar las anotaciones de la tabla *************************************
                 array_push($table_code_array,"</tr>");
 // -------------------- end data table-------------------------------------------------------------------------------------------
 
@@ -192,27 +194,12 @@ function get_data($expr_file,$gids)
 
            
     } //end foreach;
-
-    //echo("<p> Final: ".json_encode($cartoons_all_genes)."</p>");
-//   //     array_push($table_code_array,"</tr>");
-        
-//   //     array_push($heatmap_series, $heatmap_one_gene);
-      
-      
-      
-//   //     $replicates = [];
-//   //     $heatmap_one_gene = [];
-//   //     // $scatter_one_gene = [];
-    //   $scatter_one_sample = [];
-//   //   } // end if gene in input list
-    
-    
-        // } // each line, each gene foreach
         array_push($table_code_array,"</tbody></table></div><br>");
+
      } // end table
 
 
-        $array_all[]=[];
+        $array_all=[];
         $array_all["table"]=$table_code_array;
         $array_all["header"]=$header_content;
         $array_all["heatmap"]=$heatmap_series;

@@ -12,8 +12,8 @@
 <?php
 $array_info=[];
 $description=[];
-  if ( file_exists("$expression_path/expression_info.json") ) {
-    $annot_json_file = file_get_contents("$expression_path/expression_info.json");
+if ( file_exists("$json_files_path/tools/expression_info.json") ) {
+  $annot_json_file = file_get_contents("$json_files_path/tools/expression_info.json");
     $annot_hash = json_decode($annot_json_file, true);
     foreach($dataset_file_name as $name){  
       if ($annot_hash[$name]["description"]) {
@@ -31,7 +31,8 @@ $description=[];
     }
       
     foreach ($array_info as $index=>$info) {
-      echo "<a class=margin-20 d-inline-flex pointer_cursor href=/easy_gdb/custom_view.php?file_name=../expr_datasets/$description[$index] target=_blank><i class='fa fa-info' style='font-size:20px;color:#229dff'></i> $description[$index]</a>";
+      $info_name = str_replace(["_",".php"]," ",$description[$index]);
+      echo "<a class=margin-20 d-inline-flex pointer_cursor href=/easy_gdb/custom_view.php?file_name=../expr_datasets/$description[$index] target=_blank><i class='fa fa-info' style='font-size:20px;color:#229dff'></i> $info_name</a>";
     }
   } 
 ?>

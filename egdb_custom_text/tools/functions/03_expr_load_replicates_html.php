@@ -28,7 +28,7 @@
                 }
             echo"</select>";
           echo"</div>";
-          echo"<div id=\"chart_rep$index\" style=\"min-height: 365px\"></div>";
+          echo"<div id=\"chart_rep$index\" style=\"min-height: 565px\"></div>";
           echo"</div>";
       }
 
@@ -64,3 +64,9 @@
 </script>
 
 <script  src="../functions/replicates_graph.js"></script>
+<!-- <style>
+  /* svg{
+    height: 110% !important;
+  } */
+
+</style> -->

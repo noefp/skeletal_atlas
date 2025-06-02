@@ -14,8 +14,8 @@
       <button id="bars_btn" type="button" class="btn btn-primary">Bars</button>
       <button id="lines_btn" type="button" class="btn btn-danger">Lines</button>
 
-      <div id="chart_bar1" style="min-height: 550px;"></div><br>
-      <div id="chart_bar2" style="min-height: 550px;"></div><br>
+      <div id="chart_bar1" style="min-height: 550px;border-bottom:2px solid #666"></div><br>
+      <div id="chart_bar2" style="min-height: 550px;border-bottom:2px solid #666"></div><br>
       <div id="chart_bar3" style="min-height: 550px;"></div><br>
       
     </div>    
@@ -24,7 +24,8 @@
 </html>
 
 <!-- JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> 
+<!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>  -->
+
 
 <script type="text/javascript">
   var sample_array=[];
@@ -40,5 +41,5 @@
   sample_array[2] = <?php echo json_encode($data3["header"]) ?>;
   bar_series[2] = <?php echo json_encode(array_reverse($data3["heatmap"])); ?>;
 </script>
-
+<script src="../functions/apexcharts.min.js"></script>
 <script src="../functions/bars_graph.js"></script>

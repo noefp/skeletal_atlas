@@ -10,12 +10,13 @@ $images_path = "/$egdb_files_folder/egdb_images";
 $custom_text_path = "$root_path/$egdb_files_folder/egdb_custom_text";
 $species_path = "$root_path/$egdb_files_folder/egdb_species";
 $lab_path = "$root_path/$egdb_files_folder/egdb_labs";
-$annotations_path = "$root_path/annotations";
+$annotations_path = "$root_path/skeletal_atlas/annotations";
 $annotation_links_path = "$root_path/$egdb_files_folder/annotations";
 $tools_path="$custom_text_path/tools";
 $expression_path = "$root_path/expression_data/skeletal_atlas";
 $private_expression_path = "$root_path/private_expression_data/skeletal_atlas";
 $expression_basic_atlas_path = "$root_path/expression_data/skeletal_basic_atlas";
+$json_files_path = "$root_path/$egdb_files_folder/json_files";
 
 // Custom css file
 //$custom_css = 1;
@@ -47,7 +48,7 @@ $tb_custom = 1;
 
 // Expression Atlas
 $expr_menu = 1;
-$expr_cartoons = 1;
+// $expr_cartoons = 1;
 
 // Expression tools order: 0 for not shown, >=1 to setup the order
 $positions=[  
@@ -60,6 +61,9 @@ $positions=[
   'table' => 7
 ];
 
+$colors = ["#eceff1","#b3e5fc","#80cbc4","#ffee58","#ffb74d","#ff8f00","#ff4f00","#cc0000","#D72C79","#801C5A","#6D3917"];
+$ranges_text =["<1",">=1",">=2",">=5",">=10",">=50",">=100",">=200",">=500",">=1000",">=5000"];
+$ranges=[[0,0.99],[1,1.99],[2,4.99],[5,9.99],[10,49.99],[50,99.99],[100,199.99],[200,499.99],[500,999.99],[1000,4999.99],[5000,50000]];
 
 // Index
 $rm_citation = 1;

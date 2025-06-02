@@ -10,6 +10,38 @@ var name_table=['Single Cell RNA-seq','Bulk RNA-seq','Proteomics'];
 var bar_chart=[];
 var i=0;
 
+
+$( "#lines_btn" ).click(function() {
+  for(var n=0;n<3;n++)
+    {  
+     bar_chart[n].updateOptions({
+      chart: {
+        type: 'line'
+      },
+      stroke: {
+        width: 3,
+      },
+    });
+    } 
+  
+});
+
+
+$( "#bars_btn" ).click(function() {
+  for(var n=0;n<3;n++)
+    { 
+      bar_chart[n].updateOptions({
+      chart: {
+      type: 'bar'
+      },
+    stroke: {
+      width: 1
+    },
+  });
+  }  
+});
+
+
 cartoon_load.forEach(load => {
   if(load){
     var options = {
@@ -106,36 +138,6 @@ cartoon_load.forEach(load => {
     i++;
   });
 
-
-$( "#lines_btn" ).click(function() {
-  for(var n=0;n<3;n++)
-    {  
-    bar_chart[n].updateOptions({
-      chart: {
-        type: 'line'
-      },
-      stroke: {
-        width: 3,
-      },
-    });
-    } 
-  
-});
-
-
-$( "#bars_btn" ).click(function() {
-  for(var n=0;n<3;n++)
-    { 
-  bar_chart[n].updateOptions({
-    chart: {
-      type: 'bar'
-    },
-    stroke: {
-      width: 1
-    },
-  });
-  }  
-});
 
 
 $(document).ready(function () {

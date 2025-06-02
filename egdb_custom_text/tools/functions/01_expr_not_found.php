@@ -1,36 +1,5 @@
 <?php include_once realpath("../../../../easy_gdb/header.php");?>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-<!-- Modal -->
-<div class="modal fade" id="genesNotFoundModal" tabindex="-1" aria-labelledby="genesNotFoundLabel" aria-hidden="true" data-bs-backdrop="static">
-  <div class="modal-dialog">
-  <!-- <div class="modal-dialog modal-sm"> -->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title w-100 text-center" id="genesNotFoundLabel" style="color: orange">⚠️ <b>Warning</b></h1>
-      </div>
-      <div class="modal-body">
-        <!-- Aquí se mostrará la lista de genes no encontrados -->
-        <i><b><p class="text-center" id="geneNotFoundList">
-          <!-- Los elementos de la lista se insertarán dinámicamente -->
-        </p></b></i>
-        <p class="text-center" style="color:orange"><b>NOT FOUND !!</b></p>
-      </div>
-      <div class="modal-footer">
-         <!-- Botón "Return" a la izquierda -->
-         <a href="expression_input.php" class="btn btn-secondary">Return</a>
-        <!-- Botón "Continue" a la derecha -->
-        <a class="btn btn-primary" data-bs-dismiss="modal">Continue</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
 <?php
  $not_found_list=[];
  $gene_name_list=[];
@@ -70,22 +39,26 @@ foreach ($gids as $index => $n) {
 
 if ($not_found_list)
 {
-echo ("<div class=\"alert alert-danger\"><strong>WARNING:</strong><i> ");
-echo(implode($separator=" , ",$not_found_list)."</i> NOT FOUND !!!"."</div>");
+  echo '<div class="alert alert-warning show">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" title="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>';
+  echo ("<div style=\"text-align: center\"><strong>Genes not found: </strong><i> ");
+  echo(implode($separator=" , ",$not_found_list)."</i></div></div>");
 
-echo "<script type='text/javascript'>
-        var genesNotFound = " . json_encode($not_found_list) . ";
+  // echo "<script type='text/javascript'>
+  //       var genesNotFound = " . json_encode($not_found_list) . ";
 
-        var geneListElement = document.getElementById('geneNotFoundList');
-            var listItem = document.createElement('p');
-            listItem.textContent = genesNotFound;
-            geneListElement.appendChild(listItem);
+  //       var geneListElement = document.getElementById('geneNotFoundList');
+  //           var listItem = document.createElement('p');
+  //           listItem.textContent = genesNotFound;
+  //           geneListElement.appendChild(listItem);
 
-        // show the modal with gnee lista not founds
-        var myModal = new bootstrap.Modal(document.getElementById('genesNotFoundModal'), {
-            keyboard: false
-        });
-        myModal.show();
-    </script>";
+  //       // show the modal with gnee lista not founds
+  //       var myModal = new bootstrap.Modal(document.getElementById('genesNotFoundModal'), {
+  //           keyboard: false
+  //       });
+  //       myModal.show();
+  //   </script>";
 }
 ?>

@@ -24,8 +24,8 @@ echo '</div>';
 
 foreach($dataset_file_name as $index => $dataset )
 {
-    if ( file_exists("$expression_path/expression_info.json") ) {
-      $annot_json_file = file_get_contents("$expression_path/expression_info.json");
+    if ( file_exists("$json_files_path/tools/expression_info.json") ) {
+      $annot_json_file = file_get_contents("$json_files_path/tools/expression_info.json");
       $annot_hash = json_decode($annot_json_file, true);
       
       if ($annot_hash[$dataset]["cartoons"]) {
@@ -34,9 +34,9 @@ foreach($dataset_file_name as $index => $dataset )
 
         //echo "<p>annot_hash cartoons exists and was found!</p>";
 
-        if (($positions['cartoons']!=0) && file_exists($expression_path."/$cartoon_conf") ) {
+        if (($positions['cartoons']!=0) && file_exists($json_files_path."/tools/$cartoon_conf") ) {
           
-          $cartoons_json = file_get_contents($expression_path."/$cartoon_conf");
+          $cartoons_json = file_get_contents($json_files_path."/tools/$cartoon_conf");
           
           // echo "<p>annot_hash cartoons_json exists and was found!</p>";
           // var_dump($cartoons_json);
@@ -205,7 +205,7 @@ cartoon_load.forEach(load =>
  {
   if(load){
    canvas[i] = create_canvas(canvas_h[i],canvas_w[i],myCanvas[i]);
-   draw_gene_cartoons(canvas[i],imgObj[i],cartoons_all_genes[i],gene_list[i][0],i,ranges,colors);
+   draw_gene_cartoons(canvas[i],imgObj[i],cartoons_all_genes[i],gene_list[i][0],i,ranges_array[i],colors_array[i]);
 
 
      gene_expr_values = cartoons_all_genes[i][gene_list[i][0]];
@@ -214,7 +214,7 @@ cartoon_load.forEach(load =>
     //    // alert(sample)
        expr_value = gene_expr_values[sample];
        sample_id=sample+"_kj_image"+i;    
-       color_rgb=get_expr_color(expr_value,ranges,colors);
+       color_rgb=get_expr_color(expr_value,ranges_array[i],colors_array[i]);
     //    $(document.getElementById(sample_id)).html(sample+": "+expr_value).css('color','rgb('+color_rgb+')');
        $(document.getElementById(sample_id)).html(sample+": "+expr_value).css('text-decoration',' double underline').css('text-decoration-color','rgb('+color_rgb+')');
       }
@@ -290,7 +290,7 @@ cartoon_load.forEach(load =>
     // alert("genelist: "+gene_list[0].findIndex((element) => element == cartoon_active_gene))
     cartoon_gene_select_index = gene_list[0].findIndex((element) => element == cartoon_active_gene);
     
-    draw_gene_cartoons(canvas[0],imgObj[0],cartoons_all_genes[0],gene_list[0][cartoon_gene_select_index],0,ranges,colors);
+    draw_gene_cartoons(canvas[0],imgObj[0],cartoons_all_genes[0],gene_list[0][cartoon_gene_select_index],0,ranges_array[0],colors_array[0]);
     
     gene_expr_values = cartoons_all_genes[0][cartoon_active_gene];
     
@@ -301,7 +301,7 @@ cartoon_load.forEach(load =>
       // alert(sample)
       expr_value = gene_expr_values[sample];
       sample_id=sample+"_kj_image0"; 
-      color_rgb=get_expr_color(expr_value,ranges,colors);
+      color_rgb=get_expr_color(expr_value,ranges_array[0],colors_array[0]);
       // $(document.getElementById(sample_id)).html(sample+": "+expr_value).css('color','rgb('+color_rgb+')');
       $(document.getElementById(sample_id)).html(sample+": "+expr_value).css('text-decoration','double underline').css('text-decoration-color','rgb('+color_rgb+')');
       // $(document.getElementById(sample_id)).html(sample+": "+expr_value);
@@ -319,7 +319,7 @@ cartoon_load.forEach(load =>
     // alert("genelist: "+gene_list[0].findIndex((element) => element == cartoon_active_gene))
     cartoon_gene_select_index = gene_list[1].findIndex((element) => element == cartoon_active_gene);
     
-    draw_gene_cartoons(canvas[1],imgObj[1],cartoons_all_genes[1],gene_list[1][cartoon_gene_select_index],1,ranges,colors);
+    draw_gene_cartoons(canvas[1],imgObj[1],cartoons_all_genes[1],gene_list[1][cartoon_gene_select_index],1,ranges_array[1],colors_array[1]);
     
     gene_expr_values = cartoons_all_genes[1][cartoon_active_gene];
     
@@ -329,7 +329,7 @@ cartoon_load.forEach(load =>
     for (var sample in gene_expr_values){
       expr_value = gene_expr_values[sample];
       sample_id=sample+"_kj_image1";    
-      color_rgb=get_expr_color(expr_value,ranges,colors);
+      color_rgb=get_expr_color(expr_value,ranges_array[1],colors_array[1]);
       // $(document.getElementById(sample_id)).html(sample+": "+expr_value).css('color','rgb('+color_rgb+')');
       $(document.getElementById(sample_id)).html(sample+": "+expr_value).css('text-decoration','double underline').css('text-decoration-color','rgb('+color_rgb+')');
       // $(document.getElementById(sample_id)).html(sample+": "+expr_value);
@@ -347,7 +347,7 @@ cartoon_load.forEach(load =>
     // alert("genelist: "+gene_list[0].findIndex((element) => element == cartoon_active_gene))
     cartoon_gene_select_index = gene_list[2].findIndex((element) => element == cartoon_active_gene);
     
-    draw_gene_cartoons(canvas[2],imgObj[2],cartoons_all_genes[2],gene_list[2][cartoon_gene_select_index],2,ranges,colors);
+    draw_gene_cartoons(canvas[2],imgObj[2],cartoons_all_genes[2],gene_list[2][cartoon_gene_select_index],2,ranges_array[2],colors_array[2]);
     
     gene_expr_values = cartoons_all_genes[2][cartoon_active_gene];
     
@@ -358,7 +358,7 @@ cartoon_load.forEach(load =>
       // alert(sample)
       expr_value = gene_expr_values[sample];
       sample_id=sample+"_kj_image2";    
-      color_rgb=get_expr_color(expr_value,ranges,colors);
+      color_rgb=get_expr_color(expr_value,ranges_array[2],colors_array[2]);
       // $(document.getElementById(sample_id)).html(sample+": "+expr_value).css('color','rgb('+color_rgb+')');
       $(document.getElementById(sample_id)).html(sample+": "+expr_value).css('text-decoration','double underline').css('text-decoration-color','rgb('+color_rgb+')');
       // $(document.getElementById(sample_id)).html(sample+": "+expr_value);
@@ -389,9 +389,9 @@ function crearFila(colors,ranges,id) {
     tabla.appendChild(fila_color);
 }
 
-crearFila(colors,ranges_text,'color-table0');
-crearFila(colors,ranges_text,'color-table1');
-crearFila(colors,ranges_text,'color-table2');
+crearFila(colors_array[0],ranges_text_array[0],'color-table0');
+crearFila(colors_array[1],ranges_text_array[1],'color-table1');
+crearFila(colors_array[2],ranges_text_array[2],'color-table2')
 
 </script>
 

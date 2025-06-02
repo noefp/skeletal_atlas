@@ -1,11 +1,9 @@
 
-<header>
+<!-- <header> -->
 <?php include_once realpath("../../../../easy_gdb/header.php");?>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</header>
+<!-- </header> -->
 
 <body>
 <div class ="page_container">
@@ -58,24 +56,26 @@
 </footer>
 
 <!--  -------------- Modal Error Info popup--------------------------------------------------------------------------------------- -->
-<div class="modal fade" id="genesEmptyModal" tabindex="-1" aria-labelledby="genesNotFoundLabel" aria-hidden="true" data-bs-backdrop="static">
-  <div class="modal-dialog">
-  <!-- <div class="modal-dialog modal-sm"> -->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title w-100 text-center" id="genesEmpty" style="color: red">❌ <b>Error</b></h1>
-      </div>
-      <div class="modal-body">
-        <!-- Aquí se mostrará la lista de genes no encontrados -->
-        <i><b><p class="text-center">
-        No genes were included in the analysis.<br>Please, add some gene IDs to the input list box</p></b></i>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<div class="modal fade" id="no_gene_modal" tabindex="-1" role="dialog" aria-labelledby="genesNotFoundLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <h3 class="modal-title  w-100 text-center" id="genesNotFoundLabel">❌ Error</h3>
+          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+            <!-- <span aria-hidden="true">&times;</span> -->
+          <!-- </button> -->
+        </div>
+        <div class="modal-body">
+          <div style="text-align: center;">
+            <p id="search_input_modal"></p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 <!-- -------------------------------------------------------------------------------------------------------------- -->
 <style>
   
@@ -152,10 +152,12 @@
       if (gene_count == 0) {
           //alert("No genes were included in the analysis. Gene count: "+gene_count+". Please, add some gene IDs to the input list box.");
             // Mostramos el modal con la lista de genes no encontrados
-            var myModal = new bootstrap.Modal(document.getElementById('genesEmptyModal'), {
-            keyboard: false
-        });
-        myModal.show()
+            // var myModal = new bootstrap.Modal(document.getElementById('genesEmptyModal'), {
+            // keyboard: false
+        // });
+        // myModal.show()
+        $("#search_input_modal").html( "No genes were included in the analysis.<br>Please, add some gene IDs to the input list box" );
+        $('#no_gene_modal').modal();
           return false;
       }
       //check input genes from gene lookup before sending form
@@ -166,7 +168,9 @@
       }
       
       if (gene_count > max_input) {
-          alert("A maximum of "+max_input+" sequences can be provided as input, your input has: "+gene_count);
+        $("#search_input_modal").html( "A maximum of "+max_input+" sequences can be provided as input, your input has: "+gene_count);
+        $('#no_gene_modal').modal();
+          // alert("A maximum of "+max_input+" sequences can be provided as input, your input has: "+gene_count);
           return false;
       }
 
@@ -176,7 +180,7 @@
     // create selection "Add typical gene markers"------------------------------------------------- 
     $("#InputGenes").val(["Col1a1","Col2a1","Matn3","Prg4","Cdh5","Dmp1"].join("\n"));
 
-    var all_genes=<?php echo file_get_contents("$root_path/expression_data/skeletal_atlas/Typical_gene_select.json")?>
+    var all_genes=<?php echo file_get_contents($GLOBALS['expression_basic_atlas_path']."/Typical_gene_select.json")?>
     // Insertamos los genes en la lista del modal
       var geneListElement = document.getElementById('typicalGeneSelect');
       for(var sample in all_genes)

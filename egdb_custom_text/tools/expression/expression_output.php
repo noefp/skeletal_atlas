@@ -6,17 +6,18 @@
 <div>
   <a class="float-right margin-20" href="/easy_gdb/help/08_gene_expression.php" target="_blank"><i class='fa fa-info' style='font-size:20px;color:#229dff'></i> Help</a>
 
-    <a href="/skeletal_atlas/egdb_custom_text/tools/expression/expression_input.php" class="float-left margin-20" style="text-decoration: underline;"><i class="fas fa-reply" style="color:#229dff"></i> Back to input</a>
+    <a onClick="history.back()" class="float-left margin-20 pointer_cursor"><i class="fas fa-reply" style="color:#229dff"></i> Back to input</a>
     <br>
     <h1 class="text-center" style="color:#653f28">Multiomic Reference Atlas Results</h1>
 </div>
 
 
-<div class="margin-20">
+<br><div id="loader_main" class="loader"></div>
+<div id="expression_output" class="margin-20" style="display:none" >
 
   <!-- This message would be displayed when the information in the Json "expression_colors" arrays does not match the size -->
-<div id="color_default" class="alert alert-info" style="display:none"><strong>Info:</strong> The default palette has been selected because the size of the attributes
-"expression_colors" in <i>"expression_info.json"</i> do not match !!!</div>
+<!-- <div id="color_default" class="alert alert-info" style="display:none"><strong>Info:</strong> The default palette has been selected because the size of the attributes
+"expression_colors" in <i>"expression_info.json"</i> do not match !!!</div> -->
 
 <?php 
 
@@ -43,9 +44,9 @@ include realpath('../functions/01_expr_not_found.php');
 //   // get data from the files dataset_file_name and Ids selection from "expression_input.php post"
 include_once realpath("../functions/data_function.php");
 
-$data1=get_data($dataset_file_name[0],$gids);
-$data2=get_data($dataset_file_name[1],$gids);
-$data3=get_data($dataset_file_name[2],$gids);
+$data1=get_data($dataset_file_name[0],$gids,"table1");
+$data2=get_data($dataset_file_name[1],$gids,"table2");
+$data3=get_data($dataset_file_name[2],$gids,"table3");
 
 // load expressions colors and ranges
 include_once realpath("../functions/01_expr_colors_range.php");
@@ -60,7 +61,7 @@ include_once realpath("../functions/03_expr_load_bars_html.php");
 include_once realpath("../functions/03_expr_load_heatmap_html.php");
 
 // create replicates graph
-// include_once realpath("../functions/03_expr_load_replicates_html.php");
+include_once realpath("../functions/03_expr_load_replicates_html.php");
 
 // create data table
 include_once realpath("../functions/03_expr_load_avg_table_html.php");
@@ -105,3 +106,10 @@ include_once realpath('../functions/01_expr_load_dataset_description.php');
 
 </style>
 
+<script>
+  $(document).ready(function() {
+    
+    $("#loader_main").hide();
+    $("#expression_output").show();
+  })
+</script>

@@ -13,9 +13,9 @@
       <button id="blue_color_btn" type="button" class="btn btn-primary">Blue palette</button>
       <button id="range_color_btn" type="button" class="btn " style="color:#FFF">Color palette</button>
 
-      <div id="chart1" style="min-height: 400px;"></div>
-      <div id="chart2" style="min-height: 400px;"></div>
-      <div id="chart3" style="min-height: 400px;"></div> 
+      <div id="chart1" style="min-height: 400px;border-bottom:2px solid #666"></div>
+      <div id="chart2" style="min-height: 400px;border-bottom:2px solid #666"></div>
+      <div id="chart3" style="min-height: 400px;border-bottom:2px solid #666"></div>  
     </div>
   </div>
 </center>

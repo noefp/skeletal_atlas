@@ -3,71 +3,104 @@
        
  // ######################################################## Heatmap btn
 
- var legend_color_ranges=colors; 
- var color_ranges=[];
- var i=0;
+ var legend_color_ranges_1=colors_array[0];
+ var legend_color_ranges_2=colors_array[1];
+ var legend_color_ranges_3=colors_array[2];
+//  var legend_color_ranges_4=colors_array[3];
 
- legend_color_ranges.forEach(colors => {
-    color_ranges.push({from:ranges[i][0],to:ranges[i][1],name:ranges_text[i],color:colors})
-    i++;
- }); 
+ var ranges_1=ranges_array[0];
+ var ranges_2=ranges_array[1];
+ var ranges_3=ranges_array[2];
+//  var ranges_4=ranges_array[3];
+
+ var ranges_text_1=ranges_text_array[0];
+ var ranges_text_2=ranges_text_array[1];
+ var ranges_text_3=ranges_text_array[2];
+//  var ranges_text_4=ranges_text_array[3];
+
+//  var legend_color_ranges=colors; 
+ var color_ranges_1=[];
+ var color_ranges_2=[];
+ var color_ranges_3=[];
+//  var color_ranges_4=[];
+
+var i=0;
+legend_color_ranges_1.forEach(colors => {
+   color_ranges_1.push({from:ranges_1[i][0],to:ranges_1[i][1],name:ranges_text_1[i],color:colors})
+   i++;
+}); 
+
+ i=0;
+legend_color_ranges_2.forEach(colors => {
+   color_ranges_2.push({from:ranges_2[i][0],to:ranges_2[i][1],name:ranges_text_2[i],color:colors})
+   i++;
+}); 
+
+ i=0;
+legend_color_ranges_3.forEach(colors => {
+   color_ranges_3.push({from:ranges_3[i][0],to:ranges_3[i][1],name:ranges_text_3[i],color:colors})
+   i++;
+});
+
+var color_ranges=[color_ranges_1,color_ranges_2,color_ranges_3];
+var legend_color_ranges=[legend_color_ranges_1,legend_color_ranges_2,legend_color_ranges_3];
 
 
-    $( "#red_color_btn" ).click(function() {
-        // alert("hi");
-        for(var n=0;n<=i;n++)
-        {
-            heatmap_chart[n].updateOptions({
-                colors: ["#ff0000"],
-                plotOptions: {
-                    heatmap: {
-                        shadeIntensity: 0.5,
-                        radius: 0,
-                        useFillColorAsStroke: true,
-                        colorScale: {
-                            ranges: []
-                        }
-                    }
-                }
-            });
-        }
-    });
-      
-      $( "#blue_color_btn" ).click(function() {
-        // alert("hi");
-        for(var n=0;n<=i;n++)
-        {
-            heatmap_chart[n].updateOptions({
-                colors: ["#008FFB"],
-                plotOptions: {
-                    heatmap: {
-                        colorScale: {
-                            ranges: []
-                        }
-                    }
-                }
-            });
-        }    
-        
-    });
-      
-      $( "#range_color_btn" ).click(function() {
-        // alert("hi: "+color_ranges);
-        for(var n=0;n<=i;n++)
-        {
-            heatmap_chart[n].updateOptions({
-                colors: legend_color_ranges,
-                plotOptions: {
-                    heatmap: {
-                        colorScale: {
-                            ranges: color_ranges
-                        }
-                    }
-                }
-            });
-        }    
-        
-    });
+$( "#red_color_btn" ).click(function() {
+  // alert(i);
+  for(var n=0;n<i;n++)
+  {
+      heatmap_chart[n].updateOptions({
+          colors: ["#ff0000"],
+          plotOptions: {
+              heatmap: {
+                  shadeIntensity: 0.5,
+                  radius: 0,
+                  useFillColorAsStroke: true,
+                  colorScale: {
+                      ranges: []
+                  }
+              }
+          }
+      });
+  }
+});
+
+$( "#blue_color_btn" ).click(function() {
+  // alert("hi");
+  for(var n=0;n<i;n++)
+  {
+      heatmap_chart[n].updateOptions({
+          colors: ["#008FFB"],
+          plotOptions: {
+              heatmap: {
+                  colorScale: {
+                      ranges: []
+                  }
+              }
+          }
+      });
+  }    
+  
+});
+
+$( "#range_color_btn" ).click(function() {
+  // alert("hi: "+color_ranges);
+  for(var n=0;n<i;n++)
+  {
+      heatmap_chart[n].updateOptions({
+          colors: legend_color_ranges[n],
+          plotOptions: {
+              heatmap: {
+                  colorScale: {
+                      ranges: color_ranges[n]
+                  }
+              }
+          }
+      });
+  }    
+  
+});
       
    // alert("heatmap_series: "+JSON.stringify(heatmap_series) );
 
@@ -80,10 +113,18 @@ var i=0;
 
 cartoon_load.forEach(load => {
   if(load){
+    if (heatmap_series[i].length > 8)
+      {
+        height_heatmap=44*heatmap_series[i].length;
+      
+      }else{
+        height_heatmap=350;
+      }
+
     var options = {
         series: heatmap_series[i],
         chart: {
-          height: 350,
+          height: height_heatmap,
           type: 'heatmap',
         },
         dataLabels: {
@@ -96,7 +137,7 @@ cartoon_load.forEach(load => {
             radius: 0,
             useFillColorAsStroke: true,
             colorScale: {
-              ranges: color_ranges
+              ranges: color_ranges[i]
             }
           }
         },
@@ -140,6 +181,7 @@ cartoon_load.forEach(load => {
     i++;
     
 });// end foreach
+
 
 $(document).ready(function () {
   // ######################################################## Heatmap
