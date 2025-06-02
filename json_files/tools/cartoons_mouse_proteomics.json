@@ -1,0 +1,45 @@
+{
+  "cartoons":
+    [
+      { "img_id":"t1",
+        "sample":"Bone",
+        "image":"mouse_proteomics_bone.png",
+        "x":10,
+        "y":10,
+        "width":612,
+        "height":480
+      },
+      { "img_id":"ac2",
+        "sample":"Cartilage",
+        "image":"mouse_proteomics_cartilage.png",
+        "x":10,
+        "y":10,
+        "width":612,
+        "height":480
+      },
+      { "img_id":"t2",
+        "sample":"Marrow",
+        "image":"mouse_proteomics_bone_marrow.png",
+        "x":10,
+        "y":10,
+        "width":612,
+        "height":480
+      },
+      { "img_id":"t3",
+        "sample":"Muscle",
+        "image":"mouse_proteomics_muscle.png",
+        "x":10,
+        "y":10,
+        "width":612,
+        "height":480
+      },
+      { "img_id":"t4",
+        "sample":"Tendon",
+        "image":"mouse_proteomics_tendon.png",
+        "x":10,
+        "y":10,
+        "width":612,
+        "height":480
+      }
+    ]
+}

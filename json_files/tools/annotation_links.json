@@ -1,0 +1,15 @@
+{
+  "ENSEMBL": "https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
+  "GeneBank": "https://www.ncbi.nlm.nih.gov/gene/?term=query_id",
+  "RefSeq":"https://www.ncbi.nlm.nih.gov/protein/query_id",
+  "MGI": "https://www.informatics.jax.org/marker/query_id",
+  "SwissProt":"http://www.uniprot.org/uniprot/query_id",
+  "TrREMBL":"http://www.uniprot.org/uniprot/query_id",
+  "Interpro":"https://www.ebi.ac.uk/interpro/entry/InterPro/query_id",
+  "GO (BP)": "https://amigo.geneontology.org/amigo/term/query_id",
+  "GO (CC)": "https://amigo.geneontology.org/amigo/term/query_id",
+  "GO (MF)": "https://amigo.geneontology.org/amigo/term/query_id",
+  "OMIM": "https://www.omim.org/entry/query_id?search=603503&highlight=query_id",
+  "HGNC": "https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/query_id"
+}
+

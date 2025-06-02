@@ -1,0 +1,53 @@
+{
+  "cartoons":
+    [
+      { "img_id":"t1",
+        "sample":"Bone",
+        "image":"Bone.png",
+        "x":10,
+        "y":10,
+        "width":612,
+        "height":480
+      },
+      { "img_id":"ac2",
+        "sample":"ArticularCartilage",
+        "image":"Articular Cartilage.png",
+        "x":10,
+        "y":10,
+        "width":612,
+        "height":480
+      },
+      { "img_id":"t2",
+        "sample":"Epiphysis",
+        "image":"Resting_GP.png",
+        "x":10,
+        "y":10,
+        "width":612,
+        "height":480
+      },
+      { "img_id":"t3",
+        "sample":"Muscle",
+        "image":"Muscle.png",
+        "x":10,
+        "y":10,
+        "width":612,
+        "height":480
+      },
+      { "img_id":"t4",
+        "sample":"Tendon",
+        "image":"Tendon.png",
+        "x":10,
+        "y":10,
+        "width":612,
+        "height":480
+      },
+      { "img_id":"t5",
+        "sample":"GrowthPlate",
+        "image":"GrowthPlate.png",
+        "x":10,
+        "y":10,
+        "width":612,
+        "height":480
+      }
+    ]
+}
