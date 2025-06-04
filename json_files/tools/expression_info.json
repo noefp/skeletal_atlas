@@ -1,12 +1,12 @@
 {
   "sc_mouse_basic_atlas_v01.txt":
     {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
-      "description":"",
+      "description":"single_cell_mouse_atlas_description.php",
       "cartoons":"cartoons_single-cell_mouse_basic_v01.json"
     },
   "proteomics_tissues_atlas_v01.txt":
     {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
-      "description":"",
+      "description":"mouse_proteomics_atlas.php",
       "cartoons":"cartoons_mouse_proteomics.json"
     },
   "growth_plate_scRNAseq_Aga2_Wt.txt":
