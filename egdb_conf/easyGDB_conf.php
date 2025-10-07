@@ -27,7 +27,7 @@ $file_database = 1;
 
 // header
 $dbTitle = "SkeletalAtlas";
-$header_img = "welcome_page1.jpg";
+$header_img = "";
 $db_logo = "db_logo.png";
 
 // Toolbar
@@ -69,8 +69,8 @@ $ranges=[[0,0.99],[1,1.99],[2,4.99],[5,9.99],[10,49.99],[50,99.99],[100,199.99],
 $rm_citation = 1;
 
 // About
-$ab_citation = 1;
-$ab_labs = 0;
+$ab_citation = 0;
+$ab_labs = 1;
 
 //Gene examples
 $gene_sample = "";

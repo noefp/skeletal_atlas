@@ -12,10 +12,17 @@
       <button id="red_color_btn" type="button" class="btn btn-danger">Red palette</button>
       <button id="blue_color_btn" type="button" class="btn btn-primary">Blue palette</button>
       <button id="range_color_btn" type="button" class="btn " style="color:#FFF">Color palette</button>
-
-      <div id="chart1" style="min-height: 400px;border-bottom:2px solid #666"></div>
+<?php
+  if($atlas=="mouse_atlas")
+  {
+      echo '<div id="chart1" style="min-height: 400px;border-bottom:2px solid #666"></div>
       <div id="chart2" style="min-height: 400px;border-bottom:2px solid #666"></div>
-      <div id="chart3" style="min-height: 400px;border-bottom:2px solid #666"></div>  
+      <div id="chart3" style="min-height: 400px;border-bottom:2px solid #666"></div>';
+  }else{
+      echo '<div id="chart1" style="min-height: 400px;border-bottom:2px solid #666"></div>
+      <div id="chart2" style="min-height: 400px;border-bottom:2px solid #666"></div>'; 
+  }
+?> 
     </div>
   </div>
 </center>
@@ -30,14 +37,14 @@
   var heatmap_series=[]; 
   var samples_found = <?php echo json_encode($gids) ?>;
 
-  sample_array[0] = <?php echo json_encode($data1["header"]) ?>;
-  heatmap_series[0] = <?php echo json_encode(array_reverse($data1["heatmap"])); ?>;
+  sample_array[0] = <?php echo(isset($data1) ? json_encode($data1["header"]) : '[]') . ";\n" ?>;
+  heatmap_series[0] = <?php echo (isset($data1) ? json_encode(array_reverse($data1["heatmap"])) : '[]') . ";\n"; ?>;
 
-  sample_array[1] = <?php echo json_encode($data2["header"]) ?>;
-  heatmap_series[1] = <?php echo json_encode(array_reverse($data2["heatmap"])); ?>;
+  sample_array[1] = <?php echo(isset($data2) ? json_encode($data2["header"]) : '[]') . ";\n" ?>;
+  heatmap_series[1] = <?php echo (isset($data2) ? json_encode(array_reverse($data2["heatmap"])) : '[]') . ";\n"; ?>;
 
-  sample_array[2] = <?php echo json_encode($data3["header"]) ?>;
-  heatmap_series[2] = <?php echo json_encode(array_reverse($data3["heatmap"])); ?>;
+  sample_array[2] = <?php echo(isset($data3) ? json_encode($data3["header"]) : '[]') . ";\n" ?>;
+  heatmap_series[2] = <?php echo (isset($data3) ? json_encode(array_reverse($data3["heatmap"])) : '[]') . ";\n"; ?>;
 </script>
 
 <script src="../functions/heatmap_graph.js"></script>

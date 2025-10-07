@@ -5,18 +5,19 @@
 
  var legend_color_ranges_1=colors_array[0];
  var legend_color_ranges_2=colors_array[1];
- var legend_color_ranges_3=colors_array[2];
-//  var legend_color_ranges_4=colors_array[3];
+//  var legend_color_ranges_3=colors_array[2];
+ var legend_color_ranges_3 = (typeof colors_array?.[2] !== 'undefined') ? colors_array[2] : [];
 
  var ranges_1=ranges_array[0];
  var ranges_2=ranges_array[1];
- var ranges_3=ranges_array[2];
-//  var ranges_4=ranges_array[3];
+//  var ranges_3=ranges_array[2];
+ var ranges_3 = (typeof ranges_array?.[2] !== 'undefined') ? ranges_array[2] : [];
 
  var ranges_text_1=ranges_text_array[0];
  var ranges_text_2=ranges_text_array[1];
- var ranges_text_3=ranges_text_array[2];
-//  var ranges_text_4=ranges_text_array[3];
+//  var ranges_text_3=ranges_text_array[2];
+ var ranges_text_3 = (typeof ranges_text_array?.[2] !== 'undefined') ? ranges_text_array[2] : [];
+
 
 //  var legend_color_ranges=colors; 
  var color_ranges_1=[];
@@ -189,9 +190,14 @@ $(document).ready(function () {
 
     $("#banner_heatmap").click(function(){
       if (!heatmap_shown) {
-        heatmap_chart[0].render();
-        heatmap_chart[1].render();
-        heatmap_chart[2].render();
+       for(var n=0;n<cartoon_load.length;n++)
+          { 
+            heatmap_chart[n].render();
+          }
+
+        // heatmap_chart[0].render();
+        // heatmap_chart[1].render();
+        // heatmap_chart[2].render();
         heatmap_shown = 1;
       }
       //$(".flip-card-inner").css("transform", "rotateY(180deg)");

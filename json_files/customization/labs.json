@@ -1,0 +1,70 @@
+ {
+	"Lab1": {
+    "group_name": "Skeletal Atlas",
+    "people": [
+      {
+        "person_name": "Ivan Duran",
+        "position": "Tenured Scientist",
+        "picture": "ivan.png",
+        "link": "https://duranlab.eu/dr-ivan-duran-jimenez",
+        "more_info": {
+          "email": "ijduran@uma.es"
+        }
+      },
+      {
+        "person_name": "Noe Fernandez-Pozo",
+        "position": "Tenured Scientist",
+        "picture": "noe.png",
+        "link": "noe.php",
+        "more_info": {
+          "email": "noe.fernandez.pozo@csic.es"
+        }
+      },
+      {
+        "person_name": "Fernando Silva-Reiriz",
+        "position": "Technician",
+        "picture": "fernando.png",
+        "link": "fernando.php",
+        "more_info": {
+          "email": "fernando.silva@ihsm.uma-csic.es"
+        }
+      },
+      {
+        "person_name": "Jesús Arcedo Rabaneda",
+        "position": "PhD Candidates",
+        "picture": "Jesus.jpg",
+        "link": "https://duranlab.eu/duran-lab-members",
+        "more_info": {
+          "email": "&#8203"
+        }
+      },
+      {
+        "person_name": "Ivan Delgado",
+        "position": "Researcher",
+        "picture": "Ivan_delgado.jpeg",
+        "link": "https://duranlab.eu/duran-lab-members",
+        "more_info": {
+          "email": "&#8203"
+        }
+      },
+      {
+        "person_name": "José Miguel Pérez Tejeiro",
+        "position": "PhD Candidates",
+        "picture": "JM.jpeg",
+        "link": "https://duranlab.eu/duran-lab-members",
+        "more_info": {
+          "email": "&#8203"
+        }
+      },
+      {
+        "person_name": "Rafael Salguero Raigón",
+        "position": "Researcher",
+        "picture": "Rafael.jpeg",
+        "link": "",
+        "more_info": {
+          "email": "&#8203"
+        }
+      }
+    ]
+  }
+}

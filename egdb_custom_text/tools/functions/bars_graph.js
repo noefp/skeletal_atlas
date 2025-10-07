@@ -12,7 +12,7 @@ var i=0;
 
 
 $( "#lines_btn" ).click(function() {
-  for(var n=0;n<3;n++)
+  for(var n=0;n<cartoon_load.length;n++)
     {  
      bar_chart[n].updateOptions({
       chart: {
@@ -28,7 +28,7 @@ $( "#lines_btn" ).click(function() {
 
 
 $( "#bars_btn" ).click(function() {
-  for(var n=0;n<3;n++)
+  for(var n=0;n<cartoon_load.length;n++)
     { 
       bar_chart[n].updateOptions({
       chart: {
@@ -77,6 +77,10 @@ cartoon_load.forEach(load => {
       markers: {
         size: 3,
       },
+
+      grid: {
+           padding: { left: 40, right: 40, top: 10, bottom: 10 }
+        },
 
       xaxis: {
         categories: sample_array[i],
@@ -146,7 +150,7 @@ $(document).ready(function () {
 
     $("#banner_bars").click(function(){
       if (!bar_shown) {
-        for(var n=0;n<3;n++)
+        for(var n=0;n<cartoon_load.length;n++)
           { 
             bar_chart[n].render();
 

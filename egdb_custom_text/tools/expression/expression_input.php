@@ -9,10 +9,25 @@
 <div class ="page_container">
   <div>
     <a class="float-right margin-20" href="/easy_gdb/help/08_gene_expression.php" target="_blank"><i class='fa fa-info' style='font-size:20px;color:#229dff'></i> Help</a>
+    <!-- <a href="/easy_gdb/index.php" class="float-left margin-20 pointer_cursor"><i class="fas fa-reply" style="color:#229dff"></i> Back</a> -->
   </div>
   <br>
-  <h3 class="text-center" style="color:#653f28">Mouse Basic Atlas</h3>
 
+<?php
+  $atlas=$_GET['atlas'];
+  // $atlas_title=($atlas=="mouse_atlas") ? "Mouse Reference Atlas" : "Human Reference Atlas";
+
+  if($atlas!="mouse_atlas" && $atlas!="human_atlas")
+  { 
+    echo "<br><div class=\"alert alert-danger\" role=\"alert\" style=\"text-align:center; margin-top:10px\"> <b>Atlas not found. Please select an atlas </b></div>";
+    echo '<div id ="welcome_container" style="display:none">'; // hide welcome container if atlas is not selected
+  }else{
+    $atlas_title=($atlas=="mouse_atlas") ? "Mouse Reference Atlas" : "Human Reference Atlas";
+    echo '<div id ="welcome_container">';
+  }
+
+echo "<br><h3 class=\"text-center\" style=\"color:#653f28\">$atlas_title</h3><br>";
+?>
   <div class="form margin-20">
     <form id="get_expression_form" action="expression_output.php" method="post">       
       <div class="form-group">
@@ -24,6 +39,7 @@
       
             <div class="input-group mb-3">
               <input id="autocomplete_gene" type="text" class="form-control form-control-lg" placeholder="gene/metabolite name">
+              <input name="atlas" value="<?php echo $atlas ?>" style="display: none;">
               <div class="input-group-append">
                 <button id="add_gene_btn" class="btn btn-success"><i class="fas fa-angle-double-right" style="font-size:28px;color:white"></i></button>
               </div>
@@ -48,6 +64,7 @@
     <br>
     <br>
   </div>
+</div> <!-- end welcome container -->
 </div>
 </body>
 
@@ -180,7 +197,7 @@
     // create selection "Add typical gene markers"------------------------------------------------- 
     $("#InputGenes").val(["Col1a1","Col2a1","Matn3","Prg4","Cdh5","Dmp1"].join("\n"));
 
-    var all_genes=<?php echo file_get_contents($GLOBALS['expression_basic_atlas_path']."/Typical_gene_select.json")?>
+    var all_genes=<?php echo file_get_contents($expression_basic_atlas_path."/Typical_gene_select.json")?>
     // Insertamos los genes en la lista del modal
       var geneListElement = document.getElementById('typicalGeneSelect');
       for(var sample in all_genes)
@@ -199,15 +216,20 @@
 // -------------------------------------------------------------------------------
 
   // call ajax_call function to get the gene list to autocomplete
-var expr_file_path= <?php echo json_encode($GLOBALS['expression_basic_atlas_path']); ?>;
-var autocomplete_files=["00_mouse_basic_atlas_v07.txt","proteomics_tissues_atlas_v01.txt","sc_mouse_basic_atlas_v01.txt"];
-  //var autocomplete_file= "/var/www/html/expression_data/skeletal_atlas/01mouse_basic_atlas/00_mouse_basic_atlas_v07.txt";
+var expr_file_path= <?php echo json_encode($expression_basic_atlas_path); ?>;
+var atlas= <?php echo json_encode($atlas); ?>;
+
+if(atlas=="mouse_atlas")
+{var autocomplete_files=["00_mouse_basic_atlas_v07.txt","proteomics_tissues_atlas_v01.txt","sc_mouse_basic_atlas_v01.txt"];}
+else
+{var autocomplete_files=["00_human_basic_atlas_v02.txt","sc_human_basic_atlas_v01.txt"];}
+
   ajax_call(autocomplete_files,expr_file_path);
   });
 </script>
 
 <style>
-.page_container {
+/* .page_container {
     background-image: linear-gradient(#d9bf9e,#ffffff);
-  }
+  } */
 </style>

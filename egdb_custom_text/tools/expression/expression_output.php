@@ -20,8 +20,14 @@
 "expression_colors" in <i>"expression_info.json"</i> do not match !!!</div> -->
 
 <?php 
+ $atlas=$_POST['atlas'];
 
-  $dataset_file_name=["sc_mouse_basic_atlas_v01.txt","00_mouse_basic_atlas_v07.txt","proteomics_tissues_atlas_v01.txt"];
+ if($atlas =="mouse_atlas"){
+  $dataset_file_name=["sc_mouse_basic_atlas_v01.txt","00_mouse_basic_atlas_v07.txt","proteomics_tissues_atlas_v01.txt"]; 
+ }else{
+  $dataset_file_name=["sc_human_basic_atlas_v01.txt","00_human_basic_atlas_v02.txt"];
+ }
+  
   $gids = [];
 
   // get post data
@@ -44,9 +50,14 @@ include realpath('../functions/01_expr_not_found.php');
 //   // get data from the files dataset_file_name and Ids selection from "expression_input.php post"
 include_once realpath("../functions/data_function.php");
 
-$data1=get_data($dataset_file_name[0],$gids,"table1");
-$data2=get_data($dataset_file_name[1],$gids,"table2");
-$data3=get_data($dataset_file_name[2],$gids,"table3");
+if($atlas =="mouse_atlas"){
+  $data1=get_data($dataset_file_name[0],$gids,"table1");
+  $data2=get_data($dataset_file_name[1],$gids,"table2");
+  $data3=get_data($dataset_file_name[2],$gids,"table3");
+}else{
+  $data1=get_data($dataset_file_name[0],$gids,"table1");
+  $data2=get_data($dataset_file_name[1],$gids,"table2");
+}
 
 // load expressions colors and ranges
 include_once realpath("../functions/01_expr_colors_range.php");

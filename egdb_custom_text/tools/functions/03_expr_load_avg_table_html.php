@@ -8,15 +8,18 @@
 <?php  
   echo "<div class=\"loader\"></div>";
   echo "<div id=\"tables_div\" style=\"display:none\">";
-    echo "<b><i><h3 style=\"text-align:center;margin-top:20px;\">"."Single Cell RNA-seq"."</h3></i></b>";
+  if(isset($data1))
+    {echo "<b><i><h3 style=\"text-align:center;margin-top:20px;\">"."Single Cell RNA-seq"."</h3></i></b>";
     if ($data1["table"] != null) echo implode($data1["table"])."<hr>";
-    else echo "<p class=\"alert alert-secondary\" style=\"text-align:center;\">"."Not results"."</p>"."<hr>";
-    echo "<b><i><h3 style=\"text-align:center; margin-top:20px;\">"."Bulk RNA-seq"."</h3></i></b>";
+    else echo "<p class=\"alert alert-secondary\" style=\"text-align:center;\">"."Not results"."</p>"."<hr>";}
+  if(isset($data2))  
+    {echo "<b><i><h3 style=\"text-align:center; margin-top:20px;\">"."Bulk RNA-seq"."</h3></i></b>";
     if ($data2["table"] != null) echo implode($data2["table"])."<hr>";
-    else echo "<p class=\"alert alert-secondary\" style=\"text-align:center;\">"."Not results"."</p>"."<hr>";
-    echo "<b><i><h3 style=\"text-align:center; margin-top:20px;\">"."Proteomics"."</h3></i></b>";
+    else echo "<p class=\"alert alert-secondary\" style=\"text-align:center;\">"."Not results"."</p>"."<hr>";}
+  if(isset($data3))  
+    {echo "<b><i><h3 style=\"text-align:center; margin-top:20px;\">"."Proteomics"."</h3></i></b>";
     if ($data3["table"] != null) echo implode($data3["table"])."<hr>";
-    else echo "<p class=\"alert alert-secondary\" style=\"text-align:center;\">"."Not results"."</p>"."<hr>";
+    else echo "<p class=\"alert alert-secondary\" style=\"text-align:center;\">"."Not results"."</p>"."<hr>";}
     // echo "<b><i><h3 style=\"text-align:center;margin-top:20px;\">"."Proteomics"."</h3></i></b>";
     // if ($data4["table"] != null) echo implode($data4["table"])."<hr>";
     // else echo "<p class=\"alert alert-secondary\" style=\"text-align:center;\">"."Not results"."</p>"."<hr>";

@@ -156,6 +156,11 @@ cartoon_load.forEach(load => {
         yaxis: {
           tickAmount: 5
         },
+
+        grid: {
+           padding: { left: 40, right: 40, top: 10, bottom: 10 }
+        },
+
         legend: {
           show: false,
           position: 'top'
@@ -175,11 +180,13 @@ cartoon_load.forEach(load => {
   
   $('#replicates_graph').on('shown.bs.collapse', function(){
     // $('#replicates_graph').click(function(){
-    // for(var n=0;n<=i;i++){
-      scatter_chart[0].render();
-      scatter_chart[1].render();
-      scatter_chart[2].render();
-    // }
+    for(var n=0;n<cartoon_load.length;n++){
+      scatter_chart[n].render();
+    }
+
+    // }      // scatter_chart[0].render();
+      // scatter_chart[1].render();
+      // scatter_chart[2].render();
   // });
 });
   

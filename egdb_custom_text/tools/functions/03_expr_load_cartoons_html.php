@@ -2,21 +2,38 @@
 <center>
 <?php
 
-$cartoons_data=[$data1["cartoons"],$data2["cartoons"],$data3["cartoons"]];
-$jcartoons=[];
-$canvas_w = [];
-$canvas_h=[];
-$titles=["Single Cell RNA-seq","Bulk RNA-seq","Proteomics"];
-// $titles_color=['blue','green','orange'];
-$cartoons=[];
+if($atlas=="mouse_atlas"){  
+  $cartoons_data=[$data1["cartoons"],$data2["cartoons"],$data3["cartoons"]];
+  $jcartoons=[];
+  $canvas_w = [];
+  $canvas_h=[];
+  $titles=["Single Cell RNA-seq","Bulk RNA-seq","Proteomics"];
+  // $titles_color=['blue','green','orange'];
+  $cartoons=[];
 
-$myCanvas=["myCanvas","myCanvas2","myCanvas3"];
-$canvas_div=["canvas_div","canvas_div1","canvas_div2"];
-$cartoon_labels=["cartoon_labels1","cartoon_labels2","cartoon_labels3"];
-$sel_cartoons=["sel_cartoons1","sel_cartoons2","sel_cartoons3"];
-$kj_image=["_kj_image","_kj_image1","_kj_image2"];
-$cartoon_load=[];
+  $myCanvas=["myCanvas","myCanvas2","myCanvas3"];
+  $canvas_div=["canvas_div","canvas_div1","canvas_div2"];
+  $cartoon_labels=["cartoon_labels1","cartoon_labels2","cartoon_labels3"];
+  $sel_cartoons=["sel_cartoons1","sel_cartoons2","sel_cartoons3"];
+  $kj_image=["_kj_image","_kj_image1","_kj_image2"];
+  $cartoon_load=[];
+}
+else{
+  $cartoons_data=[$data1["cartoons"],$data2["cartoons"]];
+  $jcartoons=[];
+  $canvas_w = [];
+  $canvas_h=[];
+  $titles=["Single Cell RNA-seq","Bulk RNA-seq"];
+  // $titles_color=['blue','green','orange'];
+  $cartoons=[];
 
+  $myCanvas=["myCanvas","myCanvas2"];
+  $canvas_div=["canvas_div","canvas_div1"];
+  $cartoon_labels=["cartoon_labels1","cartoon_labels2"];
+  $sel_cartoons=["sel_cartoons1","sel_cartoons2"];
+  $kj_image=["_kj_image","_kj_image1"];
+  $cartoon_load=[];
+}
 
 echo '<div class="collapse_section pointer_cursor" data-toggle="collapse" data-target="#cartoons_frame" aria-expanded="true">';
 echo '<i class="fas fa-sort" style="color:#229dff"></i> Expression images';
@@ -162,44 +179,47 @@ foreach($dataset_file_name as $index => $dataset )
 <script type="text/javascript" src="../functions/kinetic-v5.1.0.min.js"></script>
 <script type="text/javascript" src="../functions/cartoons_kinetic.js"></script>      
 <script>
+  var atlas =<?php echo json_encode($atlas) ?>;
   var canvas=[];
   var imgObj = [];
   var canvas_h = [];
   var canvas_w = [];
   var cartoon=[];
-  var myCanvas=["myCanvas","myCanvas2","myCanvas3"];
   var gene_list = [];
   var cartoons_all_genes = [];
 
   var img_path = <?php echo json_encode($images_path) ?>;
   var cartoon_load=<?php echo json_encode($cartoon_load)?>;
+  var cartoons_count= <?php echo json_encode(count($cartoon_load))?>;
 
-  if(cartoon_load[0]){
-    imgObj[0] = <?php echo json_encode($jcartoons[0]) ?>;
-    canvas_h[0] = <?php echo json_encode($canvas_h[0]) ?>;
-    canvas_w[0] = <?php echo json_encode($canvas_w[0]) ?>;
-    cartoons_all_genes[0]= <?php echo $cartoons_data[0] ?>;
-    gene_list[0]= <?php echo json_encode(array_keys(json_decode($cartoons_data[0],true))) ?>;
-  }
 
-  if(cartoon_load[1]){
-    imgObj[1] = <?php echo json_encode($jcartoons[1]) ?>;
-    canvas_h[1] = <?php echo json_encode($canvas_h[1]) ?>;
-    canvas_w[1] = <?php echo json_encode($canvas_w[1]) ?>;
-    cartoons_all_genes[1]= <?php echo $cartoons_data[1] ?>;
-    gene_list[1]= <?php echo json_encode(array_keys(json_decode($cartoons_data[1],true))) ?>;
-  }
+  var myCanvas=["myCanvas","myCanvas2","myCanvas3"];
 
-  if(cartoon_load[2]){
-    imgObj[2] = <?php echo json_encode($jcartoons[2]) ?>;
-    canvas_h[2] = <?php echo json_encode($canvas_h[2]) ?>;
-    canvas_w[2] = <?php echo json_encode($canvas_w[2]) ?>;
-    cartoons_all_genes[2]= <?php echo $cartoons_data[2] ?>;
-    gene_list[2]= <?php echo json_encode(array_keys(json_decode($cartoons_data[2],true))) ?>;
-  } 
+  imgObj[0] = <?php echo(isset($jcartoons[0]) ? json_encode($jcartoons[0]) : '[]') . ";\n" ?>;
+  canvas_h[0] = <?php echo(isset($canvas_h[0]) ? json_encode($canvas_h[0]) : '0') . ";\n" ?>; 
+  canvas_w[0] = <?php echo(isset($canvas_w[0]) ? json_encode($canvas_w[0]) : '0') . ";\n" ?>;
+  cartoons_all_genes[0] = <?php echo(isset($cartoons_data[0]) ? $cartoons_data[0] : '[]') . ";\n" ?>;
+  gene_list[0] = <?php echo(isset($cartoons_data[0]) ? json_encode(array_keys(json_decode($cartoons_data[0], true))) : '[]') . ";\n" ?>;
+
+  imgObj[1] = <?php echo(isset($jcartoons[1]) ? json_encode($jcartoons[1]) : '[]') . ";\n" ?>;
+  canvas_h[1] = <?php echo(isset($canvas_h[1]) ? json_encode($canvas_h[1]) : '0') . ";\n" ?>; 
+  canvas_w[1] = <?php echo(isset($canvas_w[1]) ? json_encode($canvas_w[1]) : '0') . ";\n" ?>;
+  cartoons_all_genes[1] = <?php echo(isset($cartoons_data[1]) ? $cartoons_data[1] : '[]') . ";\n" ?>;
+  gene_list[1] = <?php echo(isset($cartoons_data[1]) ? json_encode(array_keys(json_decode($cartoons_data[1], true))) : '[]') . ";\n" ?>;
+
+
+  imgObj[2] = <?php echo(isset($jcartoons[2]) ? json_encode($jcartoons[2]) : '[]') . ";\n" ?>;
+  canvas_h[2] = <?php echo(isset($canvas_h[2]) ? json_encode($canvas_h[2]) : '0') . ";\n" ?>; 
+  canvas_w[2] = <?php echo(isset($canvas_w[2]) ? json_encode($canvas_w[2]) : '0') . ";\n" ?>;
+  cartoons_all_genes[2] = <?php echo(isset($cartoons_data[2]) ? $cartoons_data[2] : '[]') . ";\n" ?>;
+  gene_list[2] = <?php echo(isset($cartoons_data[2]) ? json_encode(array_keys(json_decode($cartoons_data[2], true))) : '[]') . ";\n" ?>;
+
+
+
 
 // if (cartoons) {
 //  for(var i=0;i<3;i++)
+// console.log(cartoon_load);
 var i=0; 
 cartoon_load.forEach(load =>
  {
@@ -369,6 +389,7 @@ cartoon_load.forEach(load =>
 // </script>
 
 <script>
+
 // color table function
 function crearFila(colors,ranges,id) {
      const tabla = document.getElementById(id);
@@ -389,9 +410,15 @@ function crearFila(colors,ranges,id) {
     tabla.appendChild(fila_color);
 }
 
-crearFila(colors_array[0],ranges_text_array[0],'color-table0');
-crearFila(colors_array[1],ranges_text_array[1],'color-table1');
-crearFila(colors_array[2],ranges_text_array[2],'color-table2')
+var atlas =<?php echo json_encode($atlas) ?>;
+if(atlas === "mouse_atlas"){
+  crearFila(colors_array[0],ranges_text_array[0],'color-table0');
+  crearFila(colors_array[1],ranges_text_array[1],'color-table1');
+  crearFila(colors_array[2],ranges_text_array[2],'color-table2')
+}else{
+  crearFila(colors_array[0],ranges_text_array[0],'color-table0');
+  crearFila(colors_array[1],ranges_text_array[1],'color-table1');
+}
 
 </script>
 
