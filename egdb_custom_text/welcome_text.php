@@ -11,7 +11,7 @@
       <form action="/skeletal_atlas/egdb_custom_text/tools/expression/expression_input.php" method="get">
       <button style="all:unset;cursor:pointer;" type="submit">
         <a  class="d-flex zoom-img">
-          <img src="<?php echo $images_path.'/tools/human_atlas.png'?>" alt="Comparator" width="280px" height="280px" class="solid alignnone size-medium wp-image-3011 rounded-circle image">
+          <img src="<?php echo $images_path.'/tools/Human1.png'?>" alt="Comparator" width="280px" height="280px" class="solid alignnone size-medium wp-image-3011 rounded-circle image">
         </a></button>
         <input name="atlas" value="human_atlas" style="display: none;">
         <div class="text">
@@ -33,7 +33,7 @@
       <form action="/skeletal_atlas/egdb_custom_text/tools/expression/expression_input.php" method="get">
       <button style="all:unset;cursor:pointer;" type="submit">
         <a  class="d-flex zoom-img">
-          <img src="<?php echo $images_path.'/tools/mouse_atlas.png'?>" alt="reference" width="280px" height="280px" class="solid alignnone size-medium wp-image-3011 rounded-circle image" >
+          <img src="<?php echo $images_path.'/tools/Mouse1.png'?>" alt="reference" width="280px" height="280px" class="solid alignnone size-medium wp-image-3011 rounded-circle image" >
         </a></button>
         <input  name="atlas" value="mouse_atlas" style="display: none;">
         <div class="text">

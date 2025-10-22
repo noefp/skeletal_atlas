@@ -17,6 +17,7 @@ $expression_path = "$root_path/expression_data/skeletal_atlas";
 $private_expression_path = "$root_path/private_expression_data/skeletal_atlas";
 $expression_basic_atlas_path = "$root_path/expression_data/skeletal_basic_atlas";
 $json_files_path = "$root_path/$egdb_files_folder/json_files";
+$coexpression_path = "$root_path/coexpression_data";
 
 // Custom css file
 //$custom_css = 1;
@@ -45,6 +46,7 @@ $tb_gene_expr = 0;
 $tb_lookup = 0;
 $tb_more = 0;
 $tb_custom = 1;
+$tb_rm_home=1;
 
 // Expression Atlas
 $expr_menu = 1;

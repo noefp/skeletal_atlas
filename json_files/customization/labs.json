@@ -5,7 +5,7 @@
       {
         "person_name": "Ivan Duran",
         "position": "Tenured Scientist",
-        "picture": "ivan.png",
+        "picture": "Ivan.jpg",
         "link": "https://duranlab.eu/dr-ivan-duran-jimenez",
         "more_info": {
           "email": "ijduran@uma.es"
@@ -14,24 +14,24 @@
       {
         "person_name": "Noe Fernandez-Pozo",
         "position": "Tenured Scientist",
-        "picture": "noe.png",
-        "link": "noe.php",
+        "picture": "noe.jpeg",
+        "link": "https://www.ihsm.uma-csic.es/investigadores/1031",
         "more_info": {
-          "email": "noe.fernandez.pozo@csic.es"
+          "email": "noe.fernaadez.pozo@csic.es"
         }
       },
       {
-        "person_name": "Fernando Silva-Reiriz",
-        "position": "Technician",
-        "picture": "fernando.png",
-        "link": "fernando.php",
+        "person_name": "Javier Santos del Río",
+        "position": "PhD Candidate",
+        "picture": "Javier.jpg",
+        "link": "",
         "more_info": {
-          "email": "fernando.silva@ihsm.uma-csic.es"
+          "email": "&#8203"
         }
       },
       {
         "person_name": "Jesús Arcedo Rabaneda",
-        "position": "PhD Candidates",
+        "position": "PhD Candidate",
         "picture": "Jesus.jpg",
         "link": "https://duranlab.eu/duran-lab-members",
         "more_info": {
@@ -39,18 +39,27 @@
         }
       },
       {
-        "person_name": "Ivan Delgado",
-        "position": "Researcher",
-        "picture": "Ivan_delgado.jpeg",
+        "person_name": "José Miguel Pérez Tejeiro",
+        "position": "PhD Candidate",
+        "picture": "JM.jpg",
         "link": "https://duranlab.eu/duran-lab-members",
         "more_info": {
           "email": "&#8203"
         }
       },
       {
-        "person_name": "José Miguel Pérez Tejeiro",
-        "position": "PhD Candidates",
-        "picture": "JM.jpeg",
+        "person_name": "Fernando Silva-Reiriz",
+        "position": "Software Developer",
+        "picture": "Fernando.png",
+        "link": "fernando.php",
+        "more_info": {
+          "email": "&#8203"
+        }
+      },
+      {
+        "person_name": "Ivan Delgado",
+        "position": "Researcher",
+        "picture": "IvanDelgado.JPG",
         "link": "https://duranlab.eu/duran-lab-members",
         "more_info": {
           "email": "&#8203"

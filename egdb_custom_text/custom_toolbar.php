@@ -1,5 +1,7 @@
 <!-- <li class="nav-item"><a class="nav-link" href="/skeletal_atlas/egdb_custom_text/tools/expression/expression_input.php">Multiomics Reference Atlas</a></li> -->
 
+<?php echo "<a class=\"navbar-brand\" href=\"/easy_gdb/index.php\"><span style=\"color: #db986fff\">Skeletal</span>Atlas</a>"; ?>
+
  <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Multiomics Reference Atlas</a>
 
