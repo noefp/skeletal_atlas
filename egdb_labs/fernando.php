@@ -1,6 +1,6 @@
 
 
-<img class="float-right" src="<?php echo $images_path.'/people/fernando.png' ?>" style="margin-left:20px">
+<img class="float-right" src="<?php echo $images_path.'/people/Fernando.png' ?>" style="margin-left:20px">
 <h3>Fernando Silva Reiriz</h3>
 <p>
   <b>Position:</b> Software Developer<br>
