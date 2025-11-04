@@ -122,7 +122,9 @@ cartoon_load.forEach(load => {
         height_heatmap=350;
       }
 
-    var options = {
+  if(heatmap_series[i].length > 0)
+    {
+      var options = {
         series: heatmap_series[i],
         chart: {
           height: height_heatmap,
@@ -180,7 +182,7 @@ cartoon_load.forEach(load => {
 
     heatmap_chart[i] = new ApexCharts(document.querySelector(chart[i]), options);
     i++;
-    
+  } 
 });// end foreach
 
 
@@ -191,9 +193,10 @@ $(document).ready(function () {
     $("#banner_heatmap").click(function(){
       if (!heatmap_shown) {
        for(var n=0;n<cartoon_load.length;n++)
-          { 
-            heatmap_chart[n].render();
-          }
+        {
+          if(typeof heatmap_chart[n] !== 'undefined') 
+            {heatmap_chart[n].render();}
+        }
 
         // heatmap_chart[0].render();
         // heatmap_chart[1].render();

@@ -47,7 +47,7 @@ function get_data($expr_file,$gids,$id_table)
                 foreach ($columns as $col_count => $col) {
                     $sample_name = $header[$col_count];
                     if ($col_count != 0) {
-                        if ($replicates[$sample_name]) {
+                        if (isset($replicates[$sample_name]) && $replicates[$sample_name]) {
                             array_push($replicates[$sample_name], $col);
                         } else {
                             $replicates[$sample_name] = [];
@@ -64,11 +64,12 @@ function get_data($expr_file,$gids,$id_table)
         $heatmap_one_gene = [];
         $heatmap_series = [];
         $cartoons_all_genes = [];
+        $header_content = [];
         // create header table with sample names       
         if($found_genes)
         { 
             array_push($table_code_array,"<div style=\"margin: auto; overflow: auto;\"\"><table id=$id_table class=\"tblResults inline-box table table-striped table-bordered\">");
-            $header_content = [];
+            // $header_content = [];
             array_push($table_code_array, "<thead><tr><th style=\"text-align:center\">"."ID"."</th>");
 
             $sample_names =array_keys($replicates_all[$found_genes[0]]);
@@ -99,7 +100,7 @@ function get_data($expr_file,$gids,$id_table)
         // print expression average values $r_key is like "Sample1" and $r_value is like [4.4,2.3,8.1]
                 foreach ($replicates_all[$ID] as $r_key => $r_value) {
                 $average = 0;
-                $zero_values = array_count_values($r_value)['0'];
+                $zero_values = isset(array_count_values($r_value)['0']) ? array_count_values($r_value)['0'] : 0;
                 $empty_values = count($r_value) - (count(array_filter($r_value)) + $zero_values);
                 
             //    echo "array size: ".count($r_value)."<br>";
@@ -132,7 +133,7 @@ function get_data($expr_file,$gids,$id_table)
 //--------------------------------------save heatmap data-------------------------------------------------------------------------------------------
                 $heatmap_one_gene["name"] = $ID;
                 
-                if ($heatmap_one_gene["data"]) {
+                if (isset($heatmap_one_gene["data"]) && $heatmap_one_gene["data"]) {
                     array_push($heatmap_one_gene["data"], $average);
                 } else {
                     $heatmap_one_gene["data"] = [];
@@ -143,7 +144,7 @@ function get_data($expr_file,$gids,$id_table)
                 //echo "<p>gene_name:[".$ID."] r_key:[".$r_key."] average:[".$average."]</p>";
               //echo("<p>Antes: ".$cartoons_all_genes[$ID]."</p>");
 
-                if ($cartoons_all_genes[$ID]) {
+                if (isset($cartoons_all_genes[$ID]) && $cartoons_all_genes[$ID]) {
                     $cartoons_all_genes[$ID][$r_key]=$average;;
                 } else {
                     $cartoons_all_genes[$ID] = [];
@@ -158,7 +159,7 @@ function get_data($expr_file,$gids,$id_table)
             // print_r($r_key); print_r($one_replicate_pair);
         //     //save samples and add replicates
             $scatter_one_sample["name"] = $r_key;
-            if ($scatter_one_sample["data"]) {
+            if (isset($scatter_one_sample["data"])) {
               array_push($scatter_one_sample["data"], $one_replicate_pair );
             } else {
               $scatter_one_sample["data"] = [];
@@ -170,7 +171,7 @@ function get_data($expr_file,$gids,$id_table)
         }
             $scatter_pos++;
          //   //save gene and add samples with replicates
-          if ($scatter_all_genes[$ID]) {
+          if (isset($scatter_all_genes[$ID])) {
             array_push($scatter_all_genes[$ID],$scatter_one_sample);
           } else {
             $scatter_all_genes[$ID] = [];

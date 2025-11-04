@@ -30,6 +30,7 @@ $file_database = 1;
 $dbTitle = "SkeletalAtlas";
 $header_img = "";
 $db_logo = "db_logo.png";
+$warning_debug = 0; // 1 to save all errors and warnings logs. 0 to not save warnings logs but save errors logs
 
 // Toolbar
 $tb_rm_home = 0;
@@ -48,7 +49,7 @@ $tb_gene_expr = 0;
 $tb_lookup = 0;
 $tb_more = 0;
 $tb_custom = 1;
-$tb_rm_home=1;
+$tb_rm_home= 1;
 
 $tb_help = 0;
 $tb_private = 0;
@@ -94,6 +95,9 @@ $input_gene_list="0610005C13Rik
 $max_lookup_input = 10000;
 $max_extract_seq_input = 10000;
 $max_blast_input = 20;
+$max_expression_input=20;
+
+
 
 // BLAST
 $blast_example=">protein_or_DNA

@@ -26,7 +26,7 @@ $expression_info_json = false;
   foreach($dataset_file_name as $dataset_name_ori){  
 
     // foreach($dataset_file_name as $dataset_name_ori){
-      $annot_hash_color=$annot_hash[$dataset_name_ori]['expression_colors'];
+      $annot_hash_color=isset($annot_hash[$dataset_name_ori]['expression_colors']) ? $annot_hash[$dataset_name_ori]['expression_colors'] : false;
       if($annot_hash_color)
       {
         if(count(array_diff(['colors','ranges_txt','ranges'],array_keys($annot_hash_color))) === 0)

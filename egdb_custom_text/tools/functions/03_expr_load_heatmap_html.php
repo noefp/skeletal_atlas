@@ -13,15 +13,19 @@
       <button id="blue_color_btn" type="button" class="btn btn-primary">Blue palette</button>
       <button id="range_color_btn" type="button" class="btn " style="color:#FFF">Color palette</button>
 <?php
-  if($atlas=="mouse_atlas")
-  {
-      echo '<div id="chart1" style="min-height: 400px;border-bottom:2px solid #666"></div>
-      <div id="chart2" style="min-height: 400px;border-bottom:2px solid #666"></div>
-      <div id="chart3" style="min-height: 400px;border-bottom:2px solid #666"></div>';
-  }else{
-      echo '<div id="chart1" style="min-height: 400px;border-bottom:2px solid #666"></div>
-      <div id="chart2" style="min-height: 400px;border-bottom:2px solid #666"></div>'; 
-  }
+  // if($atlas=="mouse_atlas")
+  // {
+    
+    if(isset($data1) && !empty($data1["heatmap"]))
+      {echo '<div id="chart1" style="min-height: 400px;border-bottom:2px solid #666"></div>';}
+    if(isset($data2) && !empty($data2["heatmap"]))
+      {echo '<div id="chart2" style="min-height: 400px;border-bottom:2px solid #666"></div>';}
+    if(isset($data3) && !empty($data3["heatmap"]))
+      {echo '<div id="chart3" style="min-height: 400px;border-bottom:2px solid #666"></div>';}
+  // }else{
+      // echo '<div id="chart1" style="min-height: 400px;border-bottom:2px solid #666"></div>
+      // <div id="chart2" style="min-height: 400px;border-bottom:2px solid #666"></div>'; 
+  // }
 ?> 
     </div>
   </div>

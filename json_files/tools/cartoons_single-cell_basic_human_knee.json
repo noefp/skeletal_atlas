@@ -2,7 +2,7 @@
   "cartoons":
     [
       { "img_id":"t1",
-        "sample":"ArticularChon.3",
+        "sample":"ArticularChon",
         "image":"ArticularChon_ref.png",
         "x":10,
         "y":10,
@@ -10,7 +10,7 @@
         "height":700
       },
       { "img_id":"t2",
-        "sample":"ChondroPRO.3",
+        "sample":"ChondroPRO",
         "image":"ChondroPro_ref.png",
         "x":10,
         "y":10,
@@ -18,7 +18,7 @@
         "height":700
       },
       { "img_id":"t3",
-        "sample":"CyclingChon.3",
+        "sample":"CyclingChon",
         "image":"CyclingChon_ref.png",
         "x":10,
         "y":10,
@@ -26,7 +26,7 @@
         "height":700
       },
       { "img_id":"t4",
-        "sample":"Dermfib.3",
+        "sample":"Dermfib",
         "image":"DermFib_ref.png",
         "x":10,
         "y":10,
@@ -34,7 +34,7 @@
         "height":700
       },
       { "img_id":"t5",
-        "sample":"DLK1Chon.3",
+        "sample":"DLK1Chon",
         "image":"DLK1Chon_ref.png",
         "x":10,
         "y":10,
@@ -42,7 +42,7 @@
         "height":700
       },
       { "img_id":"t6",
-        "sample":"EarArticularChon.3",
+        "sample":"EarArticularChon",
         "image":"EarArticularChon_ref.png",
         "x":10,
         "y":10,
@@ -50,7 +50,7 @@
         "height":700
       },
       { "img_id":"t7",
-        "sample":"EarlyDerm.3",
+        "sample":"EarlyDerm",
         "image":"EarlyDerm_ref.png",
         "x":10,
         "y":10,
@@ -58,7 +58,7 @@
         "height":700
       },
       { "img_id":"t8",
-        "sample":"EarlyMesPre.3",
+        "sample":"EarlyMesPre",
         "image":"EarlyMesPre_ref.png",
         "x":10,
         "y":10,
@@ -66,7 +66,7 @@
         "height":700
       },
       { "img_id":"t9",
-        "sample":"EarlyOsteoblast.3",
+        "sample":"EarlyOsteoblast",
         "image":"EarlyOsteoblast_ref.png",
         "x":10,
         "y":10,
@@ -74,7 +74,7 @@
         "height":700
       },
       { "img_id":"t10",
-        "sample":"Endothelia.3",
+        "sample":"Endothelia",
         "image":"Endothelia_ref.png",
         "x":10,
         "y":10,
@@ -82,7 +82,7 @@
         "height":700
       },
       { "img_id":"t11",
-        "sample":"HyperthroficChon.3",
+        "sample":"HypertrophicChon",
         "image":"HypertrophicChon_ref.png",
         "x":10,
         "y":10,
@@ -90,7 +90,7 @@
         "height":700
       },
       { "img_id":"t12",
-        "sample":"InterChonPro.3",
+        "sample":"InterChonPro",
         "image":"InterChonPro_ref.png",
         "x":10,
         "y":10,
@@ -98,7 +98,7 @@
         "height":700
       },
       { "img_id":"t13",
-        "sample":"LateMesenPre.3",
+        "sample":"LateMesenPre",
         "image":"LateMesenPre_ref.png",
         "x":10,
         "y":10,
@@ -107,7 +107,7 @@
       },
       {
         "img_id":"t14",
-        "sample":"LimbMesPro.3",
+        "sample":"LimbMesPro",
         "image":"LimbMesPro_ref.png",
         "x":10,
         "y":10,
@@ -116,7 +116,7 @@
       },
       {
         "img_id":"t15",
-        "sample":"Lymphatic.3",
+        "sample":"Lymphatic",
         "image":"Lymphatic_ref.png",
         "x":10,
         "y":10,
@@ -125,7 +125,7 @@
       },
       {
         "img_id":"t16",
-        "sample":"MaturingChondro.3",
+        "sample":"MaturingChondro",
         "image":"MaturingChondro_ref.png",
         "x":10,
         "y":10,
@@ -134,7 +134,7 @@
       },
       {
         "img_id":"t17",
-        "sample":"MesenPro(HIC1+).3",
+        "sample":"MesenPro(HIC1+)",
         "image":"MesenPro(HIC1)_ref.png",
         "x":10,
         "y":10,
@@ -143,7 +143,7 @@
       },
       {
         "img_id":"t18",
-        "sample":"Muscle.3",
+        "sample":"Muscle",
         "image":"Muscle_ref.png",
         "x":10,
         "y":10,
@@ -152,7 +152,7 @@
       },
       {
         "img_id":"t19",
-        "sample":"Osteoblast.3",
+        "sample":"Osteoblast",
         "image":"Osteoblast_ref.png",
         "x":10,
         "y":10,
@@ -161,7 +161,7 @@
       },
       {
         "img_id":"t20",
-        "sample":"Pax7Chondro.3",
+        "sample":"Pax7Chondro",
         "image":"Pax7Chondro_ref.png",
         "x":10,
         "y":10,
@@ -170,7 +170,7 @@
       },
       {
         "img_id":"t21",
-        "sample":"Pax7Myo.3",
+        "sample":"Pax7Myo",
         "image":"Pax7Myo_ref.png",
         "x":10,
         "y":10,
@@ -179,7 +179,7 @@
       },
       {
         "img_id":"t22",
-        "sample":"Perichondrium.3",
+        "sample":"Perichondrium",
         "image":"Perichondrium_ref.png",
         "x":10,
         "y":10,
@@ -188,7 +188,7 @@
       },
       {
         "img_id":"t23",
-        "sample":"PerineuralFib.3",
+        "sample":"PerineuralFib",
         "image":"PerineuralFib_ref.png",
         "x":10,
         "y":10,
@@ -197,7 +197,7 @@
       },
       {
         "img_id":"t24",
-        "sample":"Schwann.3",
+        "sample":"Schwann",
         "image":"Schwann_ref.png",
         "x":10,
         "y":10,
@@ -206,7 +206,7 @@
       },
       {
         "img_id":"t25",
-        "sample":"Synovial.3",
+        "sample":"Synovial",
         "image":"Synovial_ref.png",
         "x":10,
         "y":10,
@@ -215,7 +215,7 @@
       },
       {
         "img_id":"t26",
-        "sample":"Tenocytes.3",
+        "sample":"Tenocytes",
         "image":"Tenocytes_ref.png",
         "x":10,
         "y":10,

@@ -25,7 +25,6 @@
   <div class="dropdown-menu">
     <a class="dropdown-item" href="/easy_gdb/tools/expression/expression_input.php">Experiment Expression Viewer</a>
     <a class="dropdown-item" href="/easy_gdb/tools/expression/comparator_input.php">Experiment Expression Comparator</a>
-    <a class="dropdown-item" href="/easy_gdb/tools/expression/cv_calculator_input.php">CV Calculator</a>
   </div>
 </li>
 
@@ -35,6 +34,8 @@
   <div class="dropdown-menu">
     <a class="dropdown-item" href="/easy_gdb/tools/search/search_input.php">Gene Annotation Search</a>
     <a class="dropdown-item" href="/easy_gdb/tools/gene_lookup.php">Gene Lookup</a>
+    <a class="dropdown-item" href="/easy_gdb/tools/expression/cv_calculator_input.php">CV Calculator</a>
+    <a class="dropdown-item" href="/easy_gdb/tools/coexpression/coex_input.php">Coexpression</a>
   </div>
 </li>
 

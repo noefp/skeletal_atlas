@@ -37,7 +37,9 @@
       echo "<br><h2 style=\"text-align=center\"><b><i>$name_table[$index]</i></b></h2>";
       // $cartoons[$index]=json_decode($cartoons_data[$index],true);
       $found_genes[$index]=array_keys($replicate);
-      echo"<div id=\"chart_rep_frame$index\" style=\"border:2px solid #666; padding-top:7px\">"; 
+    if( count($found_genes[$index]) > 0)
+      {
+        echo"<div id=\"chart_rep_frame$index\" style=\"border:2px solid #666; padding-top:7px\">"; 
           echo "<div class=\"form-group d-inline-flex\" style=\"width: 450px\">";
           echo "<label for=\"sel1$index\" style=\"width: 150px; margin-top:7px\"><b>Select gene: </b></label>";
           echo "<select class=\"form-control sel1\" id=\"sel1$index\">";
@@ -52,15 +54,17 @@
         echo '<label style="color: black; font-size: 12px; display: show;"><b>Replicate count:</b></label>
         <div id="replicates_count" style="max-height: 100px; overflow-y: auto; padding:5px; display: block;">';
         foreach ($replicate[$found_genes[$index][0]] as $gene) {
-          if($index==13)
+          if($index==13 || $index==21)
           { echo "<span class=\"badge\" style= \"color:white; background-color: $colors_array[$index]; padding:5px; margin:10px; white-space:nowrap; display: inline-block;\">".$gene['name'].": ".count($gene['data'])."</span>";}
           else
           {echo "<span class=\"badge\" style= \"background-color: $colors_array[$index]; padding:5px; margin:10px; white-space:nowrap; display: inline-block;\">".$gene['name'].": ".count($gene['data'])."</span>";}
           if ($index<$colors_array_length-1) {$index++;} else {$index=0;}
         }
         echo "</div><hr>";
+      }else{
+        echo "<p>Genes not found</p>";
       }
-
+      }
   ?>
 
   </div>
@@ -76,16 +80,16 @@
 
 
   sample_array[0] = <?php echo isset($data1) ? json_encode($data1["header"],true) : '[]'; ?>;
-  replicates_all_gene[0] = <?php  echo (isset($data1) ? json_encode($data1["replicates"]) : '[]'); ?>;
-  samples_found[0] = <?php echo isset($data1) ? json_encode($found_genes[0]) : '[]'; ?>;
+  replicates_all_gene[0] = <?php  echo isset($data1) ? json_encode($data1["replicates"]) : '[]'; ?>;
+  samples_found[0] = <?php echo (isset($data1) && isset($found_genes[0])) ? json_encode($found_genes[0]) : '[]'; ?>;
   
   sample_array[1] = <?php echo isset($data2) ? json_encode($data2["header"],true) : '[]'; ?>;
-  replicates_all_gene[1] = <?php  echo (isset($data2) ? json_encode($data2["replicates"]) : '[]'); ?>;
-  samples_found[1] = <?php echo isset($data2) ? json_encode($found_genes[1]) : '[]'; ?>;
+  replicates_all_gene[1] = <?php  echo isset($data2) ? json_encode($data2["replicates"]) : '[]'; ?>;
+  samples_found[1] = <?php echo (isset($data2) && isset($found_genes[1])) ? json_encode($found_genes[1]) : '[]'; ?>;
 
   sample_array[2] = <?php echo isset($data3) ? json_encode($data3["header"],true) : '[]'; ?>;
-  replicates_all_gene[2] = <?php  echo (isset($data3) ? json_encode($data3["replicates"]) : '[]'); ?>;
-  samples_found[2] = <?php echo isset($data3) ? json_encode($found_genes[2]) : '[]'; ?>;
+  replicates_all_gene[2] = <?php  echo isset($data3) ? json_encode($data3["replicates"]) : '[]'; ?>;
+  samples_found[2] = <?php echo (isset($data3) && isset($found_genes[2])) ? json_encode($found_genes[2]) : '[]'; ?>;
 
 </script>
 

@@ -122,7 +122,7 @@ foreach($dataset_file_name as $index => $dataset )
               echo "<div id=\"$canvas_div[$index]\">";
                 echo "<b><label>".$titles[$index]."</label></b>";
                   echo "<div id=\"$myCanvas[$index]\">";
-                  if($cartoons[$index][$found_genes[0]]){
+                  if(isset($found_genes[0]) && isset($cartoons[$index][$found_genes[0]]) && $cartoons[$index][$found_genes[0]]){
                   echo "Your browser does not support the HTML5 canvas";
                   }else{
                     echo "Genes not found";
@@ -137,7 +137,7 @@ foreach($dataset_file_name as $index => $dataset )
     
             echo "<ul id=\"$cartoon_labels[$index]\" style=\"text-align:left\">";
 
-            if($cartoons[$index][$found_genes[0]]){
+            if(isset($found_genes[0]) && isset($cartoons[$index][$found_genes[0]]) && $cartoons[$index][$found_genes[0]]){
               array_push($cartoon_load,true);
 
               foreach ($cartoons[$index][$found_genes[0]] as $sample_name => $ave_value) {

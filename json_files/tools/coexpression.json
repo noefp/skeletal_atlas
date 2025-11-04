@@ -1,4 +1,8 @@
 {
-  "mouse_basic_atlas_bulk_RNASeq":"mouse_annotationlist_v04.txt",
-  "single_cell_aga2":"mouse_annotationlist_v04.txt"
+  "mouse_basic_atlas_bulk_RNASeq":"mouse_annotationlist_v04_nG.txt",
+  "single_cell_aga2":"mouse_annotationlist_v04_nG.txt",
+  "single_cell_mouse_basic_atlas_means":"mouse_annotationlist_v04_nG.txt",
+  "single_cell_mouse_basic_atlas_replicates":"mouse_annotationlist_v04_nG.txt",
+  "single_cell_human_basic_atlas_means":"human_annotationlist_v01_nG.txt",
+  "single_cell_human_basic_atlas_replicates":"human_annotationlist_v01_nG.txt"
 }

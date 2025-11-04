@@ -37,7 +37,7 @@
 <style>
 
 .egdb_person_img {
-  min-width: 240px;
+  min-width: 300px;
 }
 
 .egdb_person_card:hover {

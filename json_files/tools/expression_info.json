@@ -1,16 +1,16 @@
 {
   "sc_mouse_basic_atlas_v01.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"single_cell_mouse_atlas_description.php",
       "cartoons":"cartoons_single-cell_mouse_basic_v01.json"
     },
   "proteomics_tissues_atlas_v01.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"mouse_proteomics_atlas.php",
       "cartoons":"cartoons_mouse_proteomics.json"
     },
   "growth_plate_scRNAseq_Aga2_Wt.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"",
       "cartoons":"cartoons_mouse_single-cell_aga2.json"
     },
@@ -24,24 +24,25 @@
           }
     },
   "00_scRNAseq_test.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":""
     },
   "00_mouse_basic_atlas_v07.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"Mouse_RNAseq_basic_atlas.php",
-      "annotation_file":"mouse_annotations_v02.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "cartoons":"cartoons_mouse_basic_atlas.json"
     },
   "00_human_basic_atlas_v02.txt":
     {"link":"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=query_id",
       "description":"00_human_tissues_atlas.php",
-      "cartoons":"cartoons_human_basic_atlas.json"
+      "cartoons":"cartoons_human_basic_atlas.json",
+      "annotation_file":"human_annotationlist_v01_nG.txt"
     },
   "01_mouse_EphrinB2_bone.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"01_PRJNA434572_EphrinB2_effects_bone.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
           {
             "Wt_EphrinB2":"ephrinb2_wt.png",
@@ -49,9 +50,9 @@
           }
     },
   "02_mouse_Wnt7b_overexpression_bone.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"02_PRJNA479739_Wnt7b_overexpression_bone.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
           {
             "Wt_Wnt7b":"control_wnt7b.png",
@@ -59,9 +60,9 @@
           }
     },
   "03_mouse_Piezo1_bone.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"03_PRJNA558239_Piezo1_effects_bone.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
           {
             "Wt_Piezo1":"piezo1_wt.png",
@@ -69,9 +70,9 @@
           }
     },
   "04_mouse_Tet1-2_bone.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"04_PRJNA577623_Tet1-2_effects_VitC.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
           {
             "Wt_Tet":"healthy_bone.png",
@@ -81,9 +82,9 @@
           }
     },
   "05_mouse_VitC_bone.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"05_PRJNA577623_VitC.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
           {
             "Wt_VitC":"gulo_wt.png",
@@ -92,9 +93,9 @@
           }
     },
   "06_mouse_Oscar_OA.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"06_PRJNA615179_Oscar_OA.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
           {
             "Wt_OA_sham_2weeks":"healthy_joint.png",
@@ -108,9 +109,9 @@
           }
     },
   "07_mouse_Bglap-Bglap2.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"07_PRJNA616424_Bglap-Bglap2.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
           {
             "Wt_Bglap-Bglap2":"healthy_bone.png",
@@ -118,9 +119,9 @@
           }
     },
   "08_mouse_OI_oim-oim_Crtap_ko.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"08_PRJNA647367_OI_oim-oim_CrtapKO.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
           {
             "Wt_OI":"healthy_bone.png",
@@ -129,9 +130,9 @@
           }
     },
   "09_mouse_Osteomyelitis_IAOM.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"09_PRJNA701190_Osteomyelitis_S.aureus.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
           {
             "Osteomyelitis_Control_3days":"control_3d.png",
@@ -141,9 +142,9 @@
           }
     },
   "10_mouse_Osteomyelitis_pretreatment_IL-27.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"10_PRJNA714525_Osteomyelitis_treatment_IL-27.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
           {
             "Osteomyelitis_control-GFP_1day":"osteomielitis.png",
@@ -157,9 +158,9 @@
           }
     },
   "11_mouse_Disuse_bone.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"11_PRJNA716188_Disuse.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
           {
             "Disuse_Control":"healthy_bone.png",
@@ -167,9 +168,9 @@
           }
     },
   "12_mouse_Hbb_cko_cartilage.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"12_PRJNA757252_Hbb_deletion.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
           {
             "Wt_Hbb":"control_hbb.png",
@@ -177,9 +178,9 @@
           }
     },
   "13_mouse_Kindlin2_cko_cartilage.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"13_PRJNA773746_kindlin-2_deletion_OA.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
           {
             "Wt_Kindlin2":"kindlin-2_control.png",
@@ -187,9 +188,9 @@
           }
     },
   "14_mouse_HNF4a_bone.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"14_PRJNA786626_HNF4a_effects_bone.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
       {
         "Wt_HNF4a":"hnf4a_control.png",
@@ -197,9 +198,9 @@
       }
     },
   "15_mouse_Bgn_bone.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"15_PRJNA791910_Bgn_effects_bone_development_fracture.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
       {
         "Wt_No_Fracture":"bgn_control.png",
@@ -209,9 +210,9 @@
       }
     },
   "16_mouse_premature_osteocytes_death.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"16_PRJNA835705_DTA_mutations_effects_osteocytes.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
       {
         "Wt_DTA":"dta_control.png",
@@ -219,9 +220,9 @@
       }
     },
   "17_mouse_OI_Col1a1Jrt-Het_and_Sost_ko.txt":
-    {"link":"https://www.ensembl.org/Mus_musculus_DBA_2J/Gene/Summary?g=query_id",
+    {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"17_PRJNA910516_OI_Col1a1Jrt-Het_and_Sost_ko.php",
-      "annotation_file":"mouse_annotationlist_v04.txt",
+      "annotation_file":"mouse_annotationlist_v04_nG.txt",
       "images":
       {
         "Wt_OI_Col1a1":"oi-sost_control.png",
@@ -231,37 +232,44 @@
     },
   "01_human_ACLtears_meniscus_injury_PRJNA430860.txt":
     {"link":"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=query_id",
-      "description":"01_human_PRJNA430860_ACLtears_meniscus_injury.php"
+      "description":"01_human_PRJNA430860_ACLtears_meniscus_injury.php",
+      "annotation_file":"human_annotationlist_v01_nG.txt"
     },
   "02_human_LGMDR12_PRJNA837196.txt":
     {"link":"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=query_id",
-      "description":"02_human_PRJNA837196_LGMD-R12.php"
+      "description":"02_human_PRJNA837196_LGMD-R12.php",
+      "annotation_file":"human_annotationlist_v01_nG.txt"
     },
   "03_human_OA_NOF_fracture_PRJNA436762.txt":
     {"link":"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=query_id",
-      "description":"03_human_PRJNA436762_OA_or_NOF_cartilage.php"
+      "description":"03_human_PRJNA436762_OA_or_NOF_cartilage.php",
+      "annotation_file":"human_annotationlist_v01_nG.txt"
     },
   "04_human_OA_PRJNA454873.txt":
     {"link":"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=query_id",
-      "description":"04_human_PRJNA454873_OA_cartilage_single.php"
+      "description":"04_human_PRJNA454873_OA_cartilage_single.php",
+      "annotation_file":"human_annotationlist_v01_nG.txt"
     },
   "05_human_OA_cartilage_PRJNA857575.txt":
     {"link":"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=query_id",
-      "description":"05_human_PRJNA857575_OA_cartilage_.php"
+      "description":"05_human_PRJNA857575_OA_cartilage_.php",
+      "annotation_file":"human_annotationlist_v01_nG.txt"
     },
   "06_human_ROD_PRJNA798962.txt":
     {"link":"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=query_id",
-      "description":"06_human_PRJNA798962_ROD.php"
+      "description":"06_human_PRJNA798962_ROD.php",
+      "annotation_file":"human_annotationlist_v01_nG.txt"
     },
   "01_human_osteoartritris_joint_Ji_2019.txt":
     {"link":"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=query_id",
-      "cartoons":"cartoons_human_osteoartritis.json"
+      "cartoons":"cartoons_human_osteoartritis.json",
+      "annotation_file":"human_annotationlist_v01_nG.txt"
     },
     "HUMAN_DEVELOPMENTAL_SKELETON_ATLAS.txt":
-    {"link":"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=query",
+    {"link":"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=query_id",
       "description":"human_SC_Knee.php",
       "cartoons":"cartoons_single-cell_human_knee.json",
-      "annotation_file":"human_annotationlist_v01.txt",
+      "annotation_file":"human_annotationlist_v01_nG.txt",
       "expression_colors":
         {
         "colors":["#eceff1","#b3e5fc","#80cbc4","#ffee58","#ffb74d","#ff8f00","#ff4f00","#cc0000","#D72C79","#801C5A","#6D3917"],
@@ -273,7 +281,7 @@
     {"link":"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=query_id",
       "description":"human_SC_Knee.php",
       "cartoons":"cartoons_single-cell_basic_human_knee.json",
-      "annotation_file":"human_annotationlist_v01.txt",
+      "annotation_file":"human_annotationlist_v01_nG.txt",
       "expression_colors":
         {
         "colors":["#eceff1","#b3e5fc","#80cbc4","#ffee58","#ffb74d","#ff8f00","#ff4f00","#cc0000","#D72C79","#801C5A","#6D3917"],

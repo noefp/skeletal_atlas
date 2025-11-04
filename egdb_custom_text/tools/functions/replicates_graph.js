@@ -121,6 +121,9 @@ cartoon_load.forEach(load => {
   // alert(JSON.stringify(replicates_all_gene[i]));
   // alert(samples_found[i][0]);
   // alert(JSON.stringify(replicates_all_gene[i][samples_found[i][0]]));
+
+  if(samples_found[i].length > 0)
+  {
       var options = {
         series:replicates_all_gene[i][samples_found[i][0]],
         chart: {
@@ -174,14 +177,16 @@ cartoon_load.forEach(load => {
   scatter_chart[i] = new ApexCharts(document.querySelector(chart[i]), options);
   // scatter_chart[i].render();
   i++;
-  });
+  }
+});
   
   // ################################### render replicates graph when opening replicates section
   
   $('#replicates_graph').on('shown.bs.collapse', function(){
     // $('#replicates_graph').click(function(){
     for(var n=0;n<cartoon_load.length;n++){
-      scatter_chart[n].render();
+      if(typeof scatter_chart[n] !== 'undefined')
+      {scatter_chart[n].render();}
     }
 
     // }      // scatter_chart[0].render();

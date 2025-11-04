@@ -178,9 +178,9 @@ echo "<br><h3 class=\"text-center\" style=\"color:#653f28\">$atlas_title</h3><br
           return false;
       }
       //check input genes from gene lookup before sending form
-      var max_input = "<?php echo $max_expression_input ?>";
+      var max_input = "<?php echo isset($max_expression_input) ? $max_expression_input : false ?>";
       
-      if (!max_input) {
+      if (!max_input) { 
         max_input = 15;
       }
       
@@ -228,8 +228,8 @@ else
   });
 </script>
 
-<style>
-/* .page_container {
+<!-- <style> -->
+<!-- /* .page_container {
     background-image: linear-gradient(#d9bf9e,#ffffff);
-  } */
-</style>
+  } */ -->
+<!-- /* </style> */ -->
