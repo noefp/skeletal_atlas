@@ -14,12 +14,10 @@ $replicates_all_genes = [];
 // $table_code_array = [];
 
 
-function get_data($expr_file,$gids,$id_table)
+function get_data($expr_folder,$expr_file,$gids,$id_table)
 {        
-    // echo $expr_file;
-    $name_file =str_replace(".txt","",$expr_file);
-    
-    $expr_file_path= $GLOBALS["expression_basic_atlas_path"]."/".$expr_file;
+    // $name_file =str_replace(".txt","",$expr_file);
+    $expr_file_path= $GLOBALS["expression_path"]."/".$expr_folder."/".$expr_file;
 
     if(file_exists("$expr_file_path") && isset($gids))
     {

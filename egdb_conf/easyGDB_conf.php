@@ -15,7 +15,7 @@ $annotation_links_path = "$root_path/$egdb_files_folder/annotations";
 $tools_path="$custom_text_path/tools";
 $expression_path = "$root_path/expression_data/skeletal_atlas";
 $private_expression_path = "$root_path/private_expression_data/skeletal_atlas";
-$expression_basic_atlas_path = "$root_path/expression_data/skeletal_basic_atlas";
+// $expression_basic_atlas_path = "$root_path/expression_data/skeletal_basic_atlas";
 $json_files_path = "$root_path/$egdb_files_folder/json_files";
 $coexpression_path = "$root_path/coexpression_data";
 

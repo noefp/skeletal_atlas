@@ -4,8 +4,8 @@
  $not_found_list=[];
  $gene_name_list=[];
  
-foreach($dataset_file_name as $expr_file){ 
-    $expr_file_path= $GLOBALS["expression_basic_atlas_path"]."/".$expr_file;
+foreach($dataset_file_name as $index => $expr_file){ 
+    $expr_file_path= $GLOBALS["expression_path"]."/".$dataset_folder[$index]."/".$expr_file;
 
     if(file_exists($expr_file_path))
     {

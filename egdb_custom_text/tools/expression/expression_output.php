@@ -23,9 +23,11 @@
  $atlas=$_POST['atlas'];
 
  if($atlas =="mouse_atlas"){
-  $dataset_file_name=["sc_mouse_basic_atlas_v01.txt","00_mouse_basic_atlas_v07.txt","proteomics_tissues_atlas_v01.txt"]; 
+  $dataset_file_name=["sc_mouse_basic_atlas_v01.txt","00_mouse_basic_atlas_v07.txt","proteomics_tissues_atlas_v01.txt"];
+  $dataset_folder=["01_Mouse_single_cell_RNAseq","02_Mouse_Bulk_RNAseq","05_mouse_proteomics"]; 
  }else{
   $dataset_file_name=["sc_human_basic_atlas_v01.txt","00_human_basic_atlas_v02.txt"];
+  $dataset_folder=["04_Human_single_cell_RNAseq","03_Human_Bulk_RNAseq"];
  }
   
   $gids = [];
@@ -51,14 +53,15 @@ include realpath('../functions/01_expr_not_found.php');
 include_once realpath("../functions/data_function.php");
 
 if($atlas =="mouse_atlas"){
-  $data1=get_data($dataset_file_name[0],$gids,"table1");
-  $data2=get_data($dataset_file_name[1],$gids,"table2");
-  $data3=get_data($dataset_file_name[2],$gids,"table3");
+  $data1=get_data($dataset_folder[0],$dataset_file_name[0],$gids,"table1");
+  $data2=get_data($dataset_folder[1],$dataset_file_name[1],$gids,"table2");
+  $data3=get_data($dataset_folder[2],$dataset_file_name[2],$gids,"table3");
 }else{
-  $data1=get_data($dataset_file_name[0],$gids,"table1");
-  $data2=get_data($dataset_file_name[1],$gids,"table2");
+  $data1=get_data($dataset_folder[0],$dataset_file_name[0],$gids,"table1");
+  $data2=get_data($dataset_folder[1],$dataset_file_name[1],$gids,"table2");
 }
 
+// var_dump($data1);
 // load expressions colors and ranges
 include_once realpath("../functions/01_expr_colors_range.php");
 
