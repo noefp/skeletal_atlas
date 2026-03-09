@@ -35,7 +35,7 @@
 <br>
 <h3 style="text-align:center; font-size:160%;">Dotplot</h3>
 
-<img src="/skeletal_atlas/egdb_images/expr_datasets_imgs/dotplot_scRNAseq_mouse_atlas.PNG" alt="Dotplot_scRNAseq" style="margin:auto; display: block;">
+<img src="/skeletal_atlas/egdb_images/expr_datasets_imgs/dotplot_scRNAseq_mouse_atlas.png" alt="Dotplot_scRNAseq" style="margin:auto; display: block;">
 <br>
 <br>
 <h3 style="text-align:center; font-size:160%; margin-bottom:20px">Cells and Markers</h3>
