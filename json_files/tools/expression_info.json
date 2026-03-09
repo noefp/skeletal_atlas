@@ -2,7 +2,13 @@
   "sc_mouse_basic_atlas_v01.txt":
     {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"single_cell_mouse_atlas_description.php",
-      "cartoons":"cartoons_single-cell_mouse_basic_v01.json"
+      "cartoons":"cartoons_single-cell_mouse_basic_v01.json",
+       "expression_colors":
+        {
+        "colors":["#eceff1","#b3e5fc","#80cbc4","#ffee58","#ffb74d","#ff8f00","#ff4f00","#cc0000","#D72C79","#801C5A","#6D3917"],
+        "ranges_txt":["0","0-0.2",">=0.2",">=0.5",">=0.75",">=1",">=5",">=10",">=50",">=100",">=200"],
+        "ranges":[[0,0],[0.01,0.199],[0.2,0.499],[0.5,0.749],[0.75,0.999],[1,4.99],[5,9.99],[10,49.99],[50,99.99],[100,199.99],[200,200000]]
+        }
     },
   "proteomics_tissues_atlas_v01.txt":
     {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
@@ -12,7 +18,13 @@
   "growth_plate_scRNAseq_Aga2_Wt.txt":
     {"link":"https://www.ensembl.org/Mus_musculus/Gene/Summary?g=query_id",
       "description":"",
-      "cartoons":"cartoons_mouse_single-cell_aga2.json"
+      "cartoons":"cartoons_mouse_single-cell_aga2.json",
+       "expression_colors":
+        {
+        "colors":["#eceff1","#b3e5fc","#80cbc4","#ffee58","#ffb74d","#ff8f00","#ff4f00","#cc0000","#D72C79","#801C5A","#6D3917"],
+        "ranges_txt":["0","0-0.2",">=0.2",">=0.5",">=0.75",">=1",">=5",">=10",">=50",">=100",">=200"],
+        "ranges":[[0,0],[0.01,0.199],[0.2,0.499],[0.5,0.749],[0.75,0.999],[1,4.99],[5,9.99],[10,49.99],[50,99.99],[100,199.99],[200,200000]]
+        }
     },
   "aga2_atlas_proteomics_v01.txt":
     {"link":"",
@@ -263,7 +275,13 @@
   "01_human_osteoartritris_joint_Ji_2019.txt":
     {"link":"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=query_id",
       "cartoons":"cartoons_human_osteoartritis.json",
-      "annotation_file":"human_annotationlist_v01_nG.txt"
+      "annotation_file":"human_annotationlist_v01_nG.txt",
+       "expression_colors":
+        {
+        "colors":["#eceff1","#b3e5fc","#80cbc4","#ffee58","#ffb74d","#ff8f00","#ff4f00","#cc0000","#D72C79","#801C5A","#6D3917"],
+        "ranges_txt":["0","0-0.2",">=0.2",">=0.5",">=0.75",">=1",">=5",">=10",">=50",">=100",">=200"],
+        "ranges":[[0,0],[0.01,0.199],[0.2,0.499],[0.5,0.749],[0.75,0.999],[1,4.99],[5,9.99],[10,49.99],[50,99.99],[100,199.99],[200,200000]]
+        }
     },
     "HUMAN_DEVELOPMENTAL_SKELETON_ATLAS.txt":
     {"link":"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=query_id",
