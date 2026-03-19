@@ -45,10 +45,24 @@
 <style>
   .dropdown-menu{
     background-color: #343a40;
-  }
-  .dropdown-item{
+  } 
+   .dropdown-item{
     color: white;
     width: 100%;
   }
+
+  .navbar .dropdown-menu .dropdown-item:hover {
+    color: black !important;
+    background-color: white !important;
+}
+
+.navbar .dropdown-menu .dropdown-item  {
+    color: white !important;  
+    background-color: #343a40 !important;
+}
+
+
+
+
 
 </style>
