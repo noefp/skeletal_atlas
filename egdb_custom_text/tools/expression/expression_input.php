@@ -220,9 +220,9 @@ var expr_file_path= <?php echo json_encode($expression_path); ?>;
 var atlas= <?php echo json_encode($atlas); ?>;
 
 if(atlas=="mouse_atlas")
-{var autocomplete_files=["01_Mouse_single_cell_RNAseq/sc_mouse_basic_atlas_v01.txt","02_Mouse_Bulk_RNAseq/00_mouse_basic_atlas_v07.txt","05_mouse_proteomics/proteomics_tissues_atlas_v01.txt"];}
+{var autocomplete_files=["01_Mouse_single_cell_RNAseq/sc_mouse_basic_atlas_v01.txt","02_Mouse_Bulk_RNAseq/00_mouse_basic_atlas_v07.txt","03_Mouse_proteomics/proteomics_tissues_atlas_v01.txt"];}
 else
-{var autocomplete_files=["04_Human_single_cell_RNAseq/sc_human_basic_atlas_v01.txt","03_Human_Bulk_RNAseq/00_human_basic_atlas_v02.txt"];}
+{var autocomplete_files=["../skeletal_sc_human_basic/sc_human_basic_atlas_v01.txt","05_Human_Bulk_RNAseq/00_human_basic_atlas_v02.txt"];}
 
   ajax_call(autocomplete_files,expr_file_path);
   });

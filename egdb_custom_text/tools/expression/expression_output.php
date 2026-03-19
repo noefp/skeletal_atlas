@@ -24,10 +24,10 @@
 
  if($atlas =="mouse_atlas"){
   $dataset_file_name=["sc_mouse_basic_atlas_v01.txt","00_mouse_basic_atlas_v07.txt","proteomics_tissues_atlas_v01.txt"];
-  $dataset_folder=["01_Mouse_single_cell_RNAseq","02_Mouse_Bulk_RNAseq","05_mouse_proteomics"]; 
+  $dataset_folder=["01_Mouse_single_cell_RNAseq","02_Mouse_Bulk_RNAseq","03_Mouse_proteomics"]; 
  }else{
   $dataset_file_name=["sc_human_basic_atlas_v01.txt","00_human_basic_atlas_v02.txt"];
-  $dataset_folder=["04_Human_single_cell_RNAseq","03_Human_Bulk_RNAseq"];
+  $dataset_folder=["../skeletal_sc_human_basic","05_Human_Bulk_RNAseq"];
  }
   
   $gids = [];

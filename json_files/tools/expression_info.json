@@ -283,7 +283,7 @@
         "ranges":[[0,0],[0.01,0.199],[0.2,0.499],[0.5,0.749],[0.75,0.999],[1,4.99],[5,9.99],[10,49.99],[50,99.99],[100,199.99],[200,200000]]
         }
     },
-    "HUMAN_DEVELOPMENTAL_SKELETON_ATLAS.txt":
+    "01_Human_Develomental_Skeleton_Atlas.txt":
     {"link":"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=query_id",
       "description":"human_SC_Knee.php",
       "cartoons":"cartoons_single-cell_human_knee.json",
