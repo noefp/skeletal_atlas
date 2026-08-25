@@ -2,35 +2,42 @@
   "mouse_basic_atlas_bulk_RNASeq":
     { "link":"#",
       "annotation_file":"mouse_annotationlist_v04_nG.txt",
-      "description":""
+      "description":"",
+      "description_text": ""
     },
   "single_cell_aga2":
     { "link":"#",
       "annotation_file":"mouse_annotationlist_v04_nG.txt",
-      "description":""
+      "description":"mouse_skeletal_Aga2.php",
+      "description_text":"<strong>single cell aga2</strong><br>Includes growth plate and perichondrial cell states from the <i>Col1a1Aga2/+</i> mouse OI model, including articular, precartilage, resting, proliferative, pre-hypertrophic and hypertrophic chondrocytes, perichondrial cells, pericyte/endothelial cells and platelets."
     },
 
-  "single_cell_mouse_basic_atlas_means":
+  "single_cell_mouse_basic_atlas":
     { "link":"#",
       "annotation_file":"mouse_annotationlist_v04_nG.txt",
-      "description":""
+      "description":"mouse_skeletal_reference_atlas.php",
+      "description_text":"<strong>single cell mouse basic atlas</strong><br>Includes integrated mouse skeletal cell states across osteoblasts, osteocytes, chondrocytes, stromal progenitors, marrow-associated stromal cells, vascular/perivascular cells, immune cells and muscle-associated populations."
     },
 
   "single_cell_mouse_basic_atlas_replicates":
     { "link":"#",
       "annotation_file":"mouse_annotationlist_v04_nG.txt",
-      "description":""
+      "description_file":"",
+      "description":"",
+      "description_text":""
     },
 
   "single_cell_human_basic_atlas":
     { "link":"#",
       "annotation_file":"human_annotationlist_v01_nG.txt",
-      "description":""
+      "description":"human_skeletal_reference_atlas.php",
+      "description_text":"<strong>single cell human basic atlas</strong><br> Includes human developmental skeletal cell states from the <i>To et al</i>.<br> Human Developmental Cell Atlas dataset, covering osteogenic, chondrogenic, articular/interzone-associated, vascular, muscle, dermal, synovial, tendon and precursor populations."
     },
 
   "single_cell_human_basic_atlas_replicates":
     { "link":"#",
       "annotation_file":"human_annotationlist_v01_nG.txt",
-      "description":""
+      "description":"",
+      "description_text":""
     }
 }
