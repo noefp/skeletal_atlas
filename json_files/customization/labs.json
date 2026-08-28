@@ -4,7 +4,7 @@
     "people": [
       {
         "person_name": "Ivan Duran",
-        "position": "Tenured Scientist",
+        "position": "Principal Investigator",
         "picture": "Ivan.jpg",
         "link": "https://duranlab.eu/dr-ivan-duran-jimenez",
         "more_info": {
@@ -13,11 +13,11 @@
       },
       {
         "person_name": "Noe Fernandez-Pozo",
-        "position": "Tenured Scientist",
+        "position": "PI Bioinformatician",
         "picture": "noe.jpeg",
         "link": "https://www.ihsm.uma-csic.es/investigadores/1031",
         "more_info": {
-          "email": "noe.fernaadez.pozo@csic.es"
+          "email": "noe.fernandez.pozo@csic.es"
         }
       },
       {
