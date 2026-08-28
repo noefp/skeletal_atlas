@@ -52,7 +52,7 @@
 
 
 <!-- <li class="nav-item"><a class="nav-link" href="/easy_gdb/about.php">About</a></li> -->
-<li class="nav-item"><a class="nav-link" href="/tutorial/Skeletal_Atlas_Quick_Start_Tutorial.pdf" target="_blank">Quick Start</a></li>
+<!-- <li class="nav-item"><a class="nav-link" href="/tutorial/Skeletal_Atlas_Quick_Start_Tutorial.pdf" target="_blank">Quick Start</a></li> -->
 
 <style>
   .dropdown-menu{
