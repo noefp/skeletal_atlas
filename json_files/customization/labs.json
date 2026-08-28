@@ -21,8 +21,26 @@
         }
       },
       {
+        "person_name": "Fabiana Csukasi",
+        "position": "Principal Investigator",
+        "picture": "Fabi.jpg",
+        "link": "https://duranlab.eu/dr-fabiana-csukasi",
+        "more_info": {
+          "email": "fabiana@uma.es"
+        }
+      },
+      {
+        "person_name": "Fernando Silva-Reiriz",
+        "position": "Software Developer",
+        "picture": "Fernando.png",
+        "link": "fernando.php",
+        "more_info": {
+          "email": "&#8203"
+        }
+      },
+      {
         "person_name": "Javier Santos del Río",
-        "position": "PhD Candidate",
+        "position": "Bioinformatician",
         "picture": "Javier.jpg",
         "link": "Javier.php",
         "more_info": {
@@ -43,15 +61,6 @@
         "position": "PhD Candidate",
         "picture": "JM.jpg",
         "link": "https://duranlab.eu/duran-lab-members",
-        "more_info": {
-          "email": "&#8203"
-        }
-      },
-      {
-        "person_name": "Fernando Silva-Reiriz",
-        "position": "Software Developer",
-        "picture": "Fernando.png",
-        "link": "fernando.php",
         "more_info": {
           "email": "&#8203"
         }
