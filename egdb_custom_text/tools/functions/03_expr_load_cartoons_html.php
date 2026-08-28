@@ -88,7 +88,7 @@ foreach($dataset_file_name as $index => $dataset )
           $cartoons[$index]=json_decode($cartoons_data[$index],true);
           $found_genes=array_keys(json_decode($cartoons_data[$index],true));
 
-          echo '<div id="cartoons_frame" class="row collapse show" style="margin:0px; border:2px solid #666; padding-top:7px; width:100%">';
+          echo '<div id="cartoons_frame" class="row collapse show expression-container" style="margin:0px; padding-top:7px; width:100%">';
           
           // echo "<div id=\"cartoon_frame$index\" class=\"d-inline-flex\" style=\"width:100%; margin:10px;\">"; 
           echo "<div class=\"form-group d-inline-flex\" style=\"width: 450px;margin-top:-3px;\">";

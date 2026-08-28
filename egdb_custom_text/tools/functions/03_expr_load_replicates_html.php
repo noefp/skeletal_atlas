@@ -29,7 +29,7 @@
   echo "<div class=\"collapse_section pointer_cursor\" data-toggle=\"collapse\" data-target=\"#replicates_graph\" aria-expanded=\"true\">";
   echo"<i class=\"fas fa-sort\" style=\"color:#229dff\"></i> Replicates </div>";
 
-  echo"<div id=\"replicates_graph\" class=\"collapse hide\">";
+  echo"<div id=\"replicates_graph\" class=\"collapse hide expression-container\">";
 
     foreach($replicates_data as $index => $replicate)
     {
@@ -39,7 +39,7 @@
       $found_genes[$index]=array_keys($replicate);
     if( count($found_genes[$index]) > 0)
       {
-        echo"<div id=\"chart_rep_frame$index\" style=\"border:2px solid #666; padding-top:7px\">"; 
+        echo"<div id=\"chart_rep_frame$index\" class= \"expression-container\" style=\"padding-top:7px\">"; 
           echo "<div class=\"form-group d-inline-flex\" style=\"width: 450px\">";
           echo "<label for=\"sel1$index\" style=\"width: 150px; margin-top:7px\"><b>Select gene: </b></label>";
           echo "<select class=\"form-control sel1\" id=\"sel1$index\">";
@@ -49,7 +49,8 @@
             echo"</select>";
           echo"</div>";
           echo"<div id=\"chart_rep$index\" style=\"min-height: 565px\"></div>";
-          echo"</div>";
+          // echo"</div>";
+          echo "<hr>";
 
         echo '<label style="color: black; font-size: 12px; display: show;"><b>Replicate count:</b></label>
         <div id="replicates_count" style="max-height: 100px; overflow-y: auto; padding:5px; display: block;">';
@@ -60,7 +61,7 @@
           {echo "<span class=\"badge\" style= \"background-color: $colors_array[$index]; padding:5px; margin:10px; white-space:nowrap; display: inline-block;\">".$gene['name'].": ".count($gene['data'])."</span>";}
           if ($index<$colors_array_length-1) {$index++;} else {$index=0;}
         }
-        echo "</div><hr>";
+        echo "</div></div><hr>";
       }else{
         echo "<p>Genes not found</p>";
       }

@@ -7,7 +7,7 @@
     <i class="fas fa-sort"></i> Bars Graph
   </div>
 
-  <div id="line_chart_frame" class="collapse hide" style="border:2px solid #666; padding-top:7px">
+  <div id="line_chart_frame" class="collapse hide expression-container" style="padding-top:7px">
     
 
     <div id="lines_frame">

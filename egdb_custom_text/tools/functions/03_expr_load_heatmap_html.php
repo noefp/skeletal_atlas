@@ -8,7 +8,7 @@
   </div>
 
   <div id="heatmap_graph" class="hide collapse">
-    <div id="chart1_frame" style="border:2px solid #666; padding-top:7px">
+    <div id="chart1_frame" class="expression-container" style="padding-top:7px">
       <button id="red_color_btn" type="button" class="btn btn-danger">Red palette</button>
       <button id="blue_color_btn" type="button" class="btn btn-primary">Blue palette</button>
       <button id="range_color_btn" type="button" class="btn " style="color:#FFF">Color palette</button>
