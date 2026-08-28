@@ -26,9 +26,9 @@
     echo '<div id ="welcome_container">';
   }
 
-echo "<br><h3 class=\"text-center\" style=\"color:#653f28\">$atlas_title</h3><br>";
+echo "<br><h1 class=\"text-center\">$atlas_title</h1><br>";
 ?>
-  <div class="form margin-20">
+  <div class="form margin-20 tool-container" style="margin:auto">
     <form id="get_expression_form" action="expression_output.php" method="post">       
       <div class="form-group">
         <div class="row">
