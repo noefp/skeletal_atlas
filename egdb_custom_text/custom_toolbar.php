@@ -39,7 +39,19 @@
   </div>
 </li>
 
-<li class="nav-item"><a class="nav-link" href="/easy_gdb/about.php">About</a></li>
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">More</a>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="easy_gdb/about.php">About</a>
+    <a class="dropdown-item" href="custom_view.php?file_name=data_submission.php">Data Submission</a>
+    <a class="dropdown-item" href="custom_view.php?file_name=links.php">Links</a>
+    <a class="dropdown-item" href="/tutorial/Skeletal_Atlas_Quick_Start_Tutorial.pdf" target="_blank">Quick Start</a>
+  </div>
+</li>
+
+
+
+<!-- <li class="nav-item"><a class="nav-link" href="/easy_gdb/about.php">About</a></li> -->
 <li class="nav-item"><a class="nav-link" href="/tutorial/Skeletal_Atlas_Quick_Start_Tutorial.pdf" target="_blank">Quick Start</a></li>
 
 <style>
