@@ -272,7 +272,7 @@
       "description":"06_human_PRJNA798962_ROD.php",
       "annotation_file":"human_annotationlist_v01_nG.txt"
     },
-  "01_human_osteoartritris_joint_Ji_2019.txt":
+  "02_human_osteoartritris_joint_Ji_2019.txt":
     {"link":"https://www.ensembl.org/Homo_sapiens/Gene/Summary?g=query_id",
       "cartoons":"cartoons_human_osteoartritis.json",
       "annotation_file":"human_annotationlist_v01_nG.txt",
