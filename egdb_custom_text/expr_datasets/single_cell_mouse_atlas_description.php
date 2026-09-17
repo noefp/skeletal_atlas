@@ -1,5 +1,6 @@
+<br>
 <h2>Single cell Basic Atlas for <i>Mus musculus</i></h2>
-
+<br>
 <h3>Cartilaginous lineage</h3>
 <p>
     This dataset was published by <a href="https://doi.org/10.1172/jci.insight.171984" target="_blank">Zieba J et al., 2023</a> 
@@ -32,6 +33,20 @@
 
 </p>
 <br>
+
+        <div class="row">
+
+          <div class="col-md-12 mb-12">
+            <div class="card shadow-sm h-100">
+              <div class="card-body text-center">
+                <a href="https://uamscmdr.shinyapps.io/bone_cells_explorer_all/" target="_blank" class="stretched-link text-dark" style="color:#6ae !important;"><i class="fas fa-link" style="color:#555"></i> Bone cells explorer:</a> integrated mouse skeletal single-cell UMAP, per-cell and per-cluster gene expression, and cluster annotation.
+              </div>
+            </div>
+          </div>
+          
+        </div> <!-- row -->
+
+
 <br>
 <h3 style="text-align:center; font-size:160%;">Dotplot</h3>
 

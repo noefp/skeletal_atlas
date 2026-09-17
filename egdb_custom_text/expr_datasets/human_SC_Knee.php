@@ -1,3 +1,4 @@
+<br>
 <h2>Single-nucleus of knee tissues from <i>human</i></h2>
 <div style="margin-left: 10px;">
     <h3>Tissues</h3>
@@ -34,4 +35,25 @@
     Quality control of cDNA and final libraries was performed using High Sensitivity DNA Analysis on a Bioanalyzer (Agilent). 
     Finally, libraries were sequenced on the NovaSeq 6000 system (Illumina), ensuring a minimum sequencing depth of 20,000 read pairs per sample. Data were normalized to CP10K.
     <br><br>
-</div>    
+</div>
+
+        <div class="row">
+          <div class="col-md-12 mb-12">
+            <div class="card shadow-sm h-100">
+              <div class="card-body text-center">
+                  <a href="https://webatlas.sanger.ac.uk/view/98" target="_blank" class="stretched-link text-dark" style="color:#6ae !important;"><i class="fas fa-link" style="color:#555"></i> WebAtlas spatial knee viewer:</a> spatial visualization of the developing knee dataset.
+              </div>
+            </div>
+          </div>
+        </div> <!-- row -->
+        <div class="row">
+          <div class="col-md-12 mb-12">
+            <div class="card shadow-sm h-100">
+              <div class="card-body text-center">
+                  <a href="https://developmental.cellatlas.io/skeleton-development" target="_blank" class="stretched-link text-dark" style="color:#6ae !important;"><i class="fas fa-link" style="color:#555"></i> Human Developmental Cell Atlas skeletal development portal:</a> snRNA-seq and associated Visium/ATAC-seq/ISS interpretative resources.
+              </div>
+            </div>
+          </div>
+        </div> <!-- row -->
+        
+
